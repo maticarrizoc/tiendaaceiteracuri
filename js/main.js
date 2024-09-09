@@ -153,12 +153,14 @@ function finalizarCompra(rol, carrito) {
         return;
     }
 
+    let listadoCarrito = "Productos agregados:\n";
     let total = 0;
     carrito.forEach(p => {
+        listadoCarrito += `${p.titulo} - $${p.precio}\n`;
         total += p.precio;
     });
 
-    alert(`Total de la compra: $${total}\nGracias ${rol} por tu compra.`);
+    alert(`${listadoCarrito}\nTotal de la compra: $${total}\nGracias ${rol} por tu compra.`);
     carrito.length = 0;
 }
 
