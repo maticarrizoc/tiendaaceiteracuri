@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Truculenta:opsz,wght@12..72,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cookie&display=swap");
+@font-face {
+  font-family: "Become";
+  src: url("./../../../fonts/Become-Choice.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Become Choice";
+  src: url("https://db.onlinewebfonts.com/t/ad4c3cd73550e13c224f699237ab4c5c.eot");
+  src: url("https://db.onlinewebfonts.com/t/ad4c3cd73550e13c224f699237ab4c5c.eot?#iefix") format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/ad4c3cd73550e13c224f699237ab4c5c.woff2") format("woff2"), url("https://db.onlinewebfonts.com/t/ad4c3cd73550e13c224f699237ab4c5c.woff") format("woff"), url("https://db.onlinewebfonts.com/t/ad4c3cd73550e13c224f699237ab4c5c.ttf") format("truetype"), url("https://db.onlinewebfonts.com/t/ad4c3cd73550e13c224f699237ab4c5c.svg#Become Choice") format("svg");
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  background-color: #dfd9c9;
+}
+
+a {
+  text-decoration: none;
+}
+
+.body-inicio {
+  background-image: url("../img/bg-index.svg");
+  background-size: auto;
+  background-repeat: repeat;
+
+}
+.body-inicio .main-inicio {
+  height: 100vh;
+  font-family: "Truculenta", sans-serif;
+  background-image: url("../img/tanques.avif");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+}
+.body-inicio .main-inicio .section-titulo {
+  background: rgba(223, 217, 201, 0.5137254902);
+  margin: 5%;
+  padding: 3.5%;
+  gap: 5%;
+  max-width: 450px;
+  border: 5px solid #181B34;
+}
+.body-inicio .main-inicio .section-titulo .img-titulo {
+  max-width: 100%;
+}
+.body-inicio .main-inicio .section-titulo .titulo {
+  margin: 0;
+  padding-top: 2.5%;
+  font-size: 22px;
+  font-family: "Fredoka";
+  font-weight: 800;
+  color: #181B34;
+  gap: 2px;
+}
+.body-inicio .main-inicio .section-titulo .titulo .curi {
+  font-size: 24px;
+  font-family: "Vollkorn";
+  font-style: italic;
+  font-weight: 900;
+}
+.body-inicio .main-inicio .section-titulo .subtitulo {
+  display: flex;
+  font-family: "Become", "Become Choice", "Cookie";
+  color: #181B34;
+  text-align: center;
+  justify-content: center;
+  margin: 0;
+  padding-top: 2.5%;
+  max-width: 50%;
+}
+.body-inicio .main-inicio .section-titulo .subtitulo h2,
+.body-inicio .main-inicio .section-titulo .subtitulo p {
+  margin: 0;
+  font-size: 24px;
+}
+.body-inicio .main-inicio .section-titulo .subtitulo h2 {
+  font-weight: 700;
+  font-size: 26px;
+}
+.body-inicio .main-inicio .section-titulo .subtitulo p {
+  font-weight: 300;
+  transform: rotate(10deg) translateY(-5px);
+}
+.body-inicio .main-inicio .section-titulo .subtitulo .p-invertido {
+  transform: rotate(190deg);
+}
