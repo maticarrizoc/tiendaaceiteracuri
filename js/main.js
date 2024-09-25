@@ -15,11 +15,15 @@ customElements.define('header-aceitera-curi', HeaderAceiteraCuri);
 //! Footer
 class FooterAceiteraCuri extends HTMLElement {
     connectedCallback() {
+        const currentPath = window.location.pathname;
+
+        let logoSrc = currentPath.endsWith("index.html") || currentPath === "/" ? "./img/logo.avif" : "../img/logo.avif";
+
         this.innerHTML =
             `<footer class="footer d-flex flex-wrap justify-content-between">
                 <section class="footer-logo">
                     <a href="../index.html">
-                        <img class="footer-logo-img" src="../img/logo.avif" alt="Logo de Aceitera Curi">
+                        <img class="footer-logo-img" src="${logoSrc}" alt="Logo de Aceitera Curi">
                     </a>
                 </section>
                 <section class="informacion-1">
