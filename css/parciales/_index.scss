@@ -1,0 +1,78 @@
+.body-inicio {
+    // background-image: url("../img/bg-index.svg");
+    background-size: auto;
+    background-repeat: repeat;
+
+
+    .main-inicio {
+        height: 100vh;
+        font-family: $fontTruculenta;
+        background-image: url("../img/tanques.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: bottom right;
+
+        .section-titulo {
+            background: #dfd9c983;
+            margin: 5%;
+            padding: 3.5%;
+            gap: 5%;
+            max-width: 450px;
+            border: 5px solid $clrAzul;
+
+            .img-titulo {
+                max-width: 100%;
+            }
+
+            .titulo {
+                margin: 0;
+                padding-top: 2.5%;
+                font-size: 22px;
+                font-family: $fontFredoka;
+                font-weight: 800;
+                color: $clrAzul;
+                gap: 2px;
+                .img-comilla {
+                    height: 10px;
+                }
+                .curi {
+                    font-size: 24px;
+                    font-family: $fontVollkorn;
+                    font-style: italic;
+                    font-weight: 900;
+                }
+            }
+
+            .subtitulo {
+                display: inline;
+                font-family: $fontBecome, $fontBecome2, $fontCookie;
+                color: $clrAzul;
+                text-align: center;
+                justify-content: center;
+                margin: 0;
+                padding-top: 2.5%;
+                max-width: 50%;
+
+                h2,
+                p {
+                    margin: 0;
+                    font-size: 24px;
+                }
+
+                h2 {
+                    font-weight: 700;
+                    font-size: 26px;
+                }
+
+                p {
+                    font-weight: 300;
+                    transform: rotate(10deg) translateY(-5px);
+                }
+
+                .p-invertido {
+                    transform: rotate(190deg);
+                }
+            }
+        }
+    }
+}

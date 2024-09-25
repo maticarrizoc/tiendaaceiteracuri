@@ -1,0 +1,272 @@
+.main-aceites {
+    padding-top: 10px;
+    font-family: $fontTruculenta;
+    font-weight: 600;
+    background-color: $clrPrincipal;
+    color: $clrAzul;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+
+    @include mediaquerie3 {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .seleccion-aceite {
+        padding: 2.5%;
+        border: 5px solid $clrAzul;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        h1,
+        h2 {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        ul>li {
+            list-style: none;
+
+            button {
+                font-size: 1.4rem;
+                line-height: 1.8rem;
+                font-weight: 700;
+                background: none;
+                color: $clrAzul;
+                padding: 0px;
+                border: none;
+
+                &:hover {
+                    font-family: $fontBecome, $fontBecome2, $fontCookie;
+                    font-style: italic;
+                    font-size: 1.6rem;
+                    font-weight: 900;
+                }
+            }
+        }
+    }
+
+    .aceite {
+        display: flex;
+        flex-wrap: wrap;
+
+        gap: 10px;
+
+        @include mediaquerie1 {
+            align-items: center;
+            justify-content: center;
+        }
+
+        .imagen-aceite {
+            height: 400px;
+
+            @include mediaquerie2 {
+                height: 250px;
+            }
+        }
+
+        .informacion-aceite {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 550px;
+
+            @include mediaquerie6 {
+                max-width: 350px;
+            }
+
+            .titulo-aceite {
+                font-size: 1.5rem;
+                font-weight: 700;
+            }
+
+            .subtitulo-aceite {
+                font-size: 1.4rem;
+                font-weight: 700;
+            }
+
+            .propiedades-aceite {
+                font-size: 1rem;
+
+                .propiedad-aceite {
+                    display: flex;
+                    flex-wrap: wrap;
+                }
+            }
+
+            .medidas {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                h3 {
+                    font-size: 1.4rem;
+                    font-weight: 700;
+                }
+                
+                .opciones-medidas {
+                    display: flex;
+                    gap: 5px;
+                    padding: 1px 4px;
+
+                    button {
+                        background: none;
+                        color: $clrAzul;
+                        padding: 1px 4px;
+                        border: 2px solid $clrAzul;
+
+                        &:hover {
+                            color: $clrPrincipal;
+                            background: $clrAzul;
+                        }
+
+                    }
+                }
+
+                .div-botones-carrito {
+
+                    button {
+                        background: none;
+                        color: $clrAzul;
+                        padding: 1px 4px;
+                        border: 2px solid $clrAzul;
+
+                        &:hover {
+                            color: $clrPrincipal;
+                            background: $clrAzul;
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+
+    .maridaje {
+        margin-left: 20px;
+        text-align: left;
+
+        @include mediaquerie6 {
+            margin-left: 5px;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        h4 {
+            margin-left: 10px;
+
+            @include mediaquerie6 {
+                margin-left: 5px;
+            }
+        }
+
+
+        .carousel {
+            width: 500px;
+            margin: 0 auto;
+
+            @include mediaquerie6 {
+                width: 100%;
+            }
+
+            .carousel-item {
+                .carousel-caption {
+                    font-size: 20px;
+                    font-weight: 700;
+                    line-height: 20px;
+                    color: $clrAzul;
+                    text-shadow:
+                        -1px -1px 0 $clrCrema,
+                        1px -1px 0 $clrCrema,
+                        -1px 1px 0 $clrCrema,
+                        1px 1px 0 $clrCrema;
+
+
+                    @include mediaquerie6 {
+                        font-size: 16px;
+                        line-height: 16px;
+                    }
+
+                    .titulo-maridaje {
+                        font-size: 22px;
+                        font-weight: 700;
+
+                        @include mediaquerie6 {
+                            font-size: 18px;
+                            line-height: 18px;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+
+    .envases {
+        padding-bottom: 5px;
+
+        h2 {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        ol li {
+            list-style-type: decimal;
+            font-size: 18px;
+
+            ul li {
+                list-style-type: square;
+            }
+        }
+
+
+        .img-lista {
+            display: flex;
+            justify-content: center;
+
+            .lista {
+                margin: 0;
+                padding: 0 0 0 100px;
+                width: 250px;
+                background: $clrAzul;
+                color: $clrPrincipal;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: left;
+
+                @include mediaquerie6 {
+                    padding: 0 0 0 50px;
+                    width: 175px;
+                }
+
+                li {
+                    list-style-type: square;
+                    font-size: 18px;
+
+                    @include mediaquerie6 {
+                        font-size: 14px;
+                        align-items: start;
+                    }
+                }
+            }
+
+            .img-envase {
+                width: 250px;
+                border: 5px solid $clrAzul;
+
+                @include mediaquerie6 {
+                    width: 175px;
+                }
+            }
+        }
+    }
+}

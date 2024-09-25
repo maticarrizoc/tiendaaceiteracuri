@@ -1,0 +1,218 @@
+.main-tienda {
+    font-family: $fontTruculenta;
+    font-weight: 500;
+    background-color: $clrPrincipal;
+    padding: 16px;
+    min-width: 90%;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: repeat(2, auto);
+    gap: 10px;
+    grid-template-areas:
+        "titulo titulo"
+        "filtros tienda"
+        "carrito tienda";
+
+    .titulo {
+        grid-area: titulo;
+        font-weight: 700;
+        font-size: 24px;
+    }
+
+    .filtros {
+        grid-area: filtros;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        
+        h2{
+            font-weight: 700;
+            font-size: 22px;
+        }
+        button {
+            background: $clrPrincipal;
+            color: $clrAzul;
+            border: none;
+            font-weight: 700;
+            font-size: 22px;
+            line-height: 30px;
+            width: 100%;
+            text-align: start;
+            padding-left: 15px;
+            &:hover {
+                font-family: $fontBecome, $fontBecome2, $fontCookie;
+                font-style: italic;
+                font-size: 24px;
+                
+                font-weight: 900;
+            }
+        }
+    }
+
+    .tienda {
+        grid-area: tienda;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 16px;
+
+        .tienda-item {
+            background: $clrSecundario;
+            border: 3px solid $clrAzul;
+            width: 240px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px;
+
+            .titulo-producto {
+                font-size: 22px;
+                font-weight: 700;
+            }
+
+            .subtitulo-producto {
+                font-size: 18px;
+                font-weight: 700;
+                display: flex;
+                flex-wrap: wrap;
+
+            }
+
+            .imagen-aceite {
+                max-width: 40px;
+            }
+
+            .imagen-producto {
+                max-width: 80px;
+            }
+
+            button {
+                width: 100%;
+                font-weight: 700;
+                background-color: $clrPrincipal;
+                color: $clrAzul;
+                border: 2px solid $clrAzul;
+
+                &:hover {
+                    background-color: $clrAzul;
+                    color: $clrPrincipal;
+                }
+            }
+
+            // }
+
+            &:hover {
+                box-shadow: -1px -1px 10px $clrGris,
+                    1px -1px 10px $clrGris,
+                    -1px 1px 10px $clrGris,
+                    1px 1px 10px $clrGris;
+
+                .subtitulo-producto {
+                    font-weight: 800;
+                }
+
+                .producto-overlay {
+                    transform: translateY(0%);
+                }
+
+            }
+        }
+
+
+    }
+
+    .carrito {
+        grid-area: carrito;
+        display: flex;
+        flex-direction: column;
+
+        h2 {
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .carrito-productos {
+            .carrito-item {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                padding: 0;
+                margin: 3px 0;
+                border: 2px solid $clrAzul;
+
+                h3 {
+                    width: 100%;
+                    font-size: 20px;
+                    font-weight: 700;
+                    text-align: left;
+                    padding: 0;
+                    margin: 0;
+                }
+
+                p {
+                    font-size: 16px;
+                    font-weight: 700;
+                    padding: 0;
+                    margin: 0;
+                }
+
+                .precio {
+                    width: 100%;
+                    text-align: right;
+                }
+
+
+
+                .botones {
+                    display: flex;
+                    width: 100%;
+
+                    .carrito-producto-btn {
+                        background: $clrAzul;
+                        color: $clrPrincipal;
+                        padding: 0 3px;
+                        margin: 1px;
+                        border: none;
+                    }
+                }
+            }
+        }
+
+        .carrito-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .vaciar-carrito-btn {
+                background: $clrAzul;
+                color: $clrPrincipal;
+                padding: 0 3px;
+                margin: 1px;
+                border: none;
+            }
+        }
+    }
+}
+
+
+$productos: (
+    aceite-oliva: $clrOliva,
+    aceite-uva: $clrUva,
+    aceite-girasol: $clrGirasol,
+    producto-regional: $clrGris
+);
+
+@each $producto, $color in $productos {
+    .#{$producto} .titulo-producto {
+        text-shadow:
+            -0.5px -0.5px 0 $color,
+            0.5px -0.5px 0 $color,
+            -0.5px 0.5px 0 $color,
+            0.5px 0.5px 0 $color;
+    }
+
+    .imagen-#{$producto} {
+        filter: drop-shadow(8px 8px 4px $color);
+    }
+}

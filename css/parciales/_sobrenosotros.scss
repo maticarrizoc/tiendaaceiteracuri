@@ -1,0 +1,180 @@
+.main-sobre-nosotros {
+    font-family: $fontTruculenta;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: $clrAzul;
+    background: $clrPrincipal;
+
+    h1 {
+        font-weight: 700;
+    }
+
+    @include mediaquerie4 {
+        font-size: 1.2rem;
+    }
+
+    .contenedor-sn {
+        height: 70vh;
+        align-content: center;
+        padding: 0 80px;
+
+        @include mediaquerie1 {
+            height: 60vh;
+            padding: 0 32px;
+        }
+
+        @include mediaquerie4 {
+            height: 50vh;
+            padding: 0 16px;
+        }
+    }
+
+    .consumasalud {
+        font-family: $fontBecome, $fontBecome2, $fontCookie;
+        font-size: 4rem;
+        text-shadow:
+            -0.1px -0.1px 0 $clrPrincipal,
+            0.1px -0.1px 0 $clrPrincipal,
+            -0.1px 0.1px 0 $clrPrincipal,
+            0.1px 0.1px 0 $clrPrincipal;
+        background-image: url("../img/bgsn.avif");
+        background-position: top left;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        @include mediaquerie4 {
+            order: 1;
+        }
+
+        h2,
+        p {
+            font-size: 6rem;
+            font-weight: normal;
+
+            @include mediaquerie2 {
+                font-size: 4.8rem;
+                font-weight: normal;
+            }
+
+            @include mediaquerie3 {
+                font-size: 4.5rem;
+            }
+        }
+
+        h2 {
+            font-weight: 700;
+        }
+
+        p {
+            font-weight: 300;
+            transform: rotate(10deg);
+        }
+
+        .p-invertido {
+            transform: rotate(190deg);
+        }
+    }
+
+    .parrafo-1,
+    .parrafo-2,
+    .parrafo-3 {
+        font-size: 1.2rem;
+        font-weight: 800;
+        text-align: center;
+        background-image: url("../img/bgsn.avif");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .parrafo-1 {
+        @include mediaquerie4 {
+            order: 3;
+        }
+    }
+
+    .parrafo-2 {
+        @include mediaquerie4 {
+            order: 5;
+        }
+    }
+
+    .parrafo-3 {
+        @include mediaquerie4 {
+            order: 7;
+        }
+    }
+
+    .img1 {
+        position: relative;
+        background-image: url("../img/sirviendo1.avif");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        @include mediaquerie4 {
+            order: 2;
+        }
+    }
+
+    .img2 {
+        position: relative;
+        background-image: url("../img/sirviendo2.avif");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        @include mediaquerie4 {
+            order: 4;
+        }
+    }
+
+    .img3 {
+        position: relative;
+        background-image: url("../img/hardan-lautaro.svg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        @include mediaquerie4 {
+            order: 6;
+        }
+    }
+
+    .img4 {
+        position: relative;
+        background-image: url("../img/distincion-senadores.avif");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        @include mediaquerie4 {
+            order: 8;
+        }
+    }
+
+    .img {
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgb(34, 34, 34, 0.6);
+        }
+
+    }
+    .img4 {
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgb(34, 34, 34, 0.2);
+        }
+
+    }
+}

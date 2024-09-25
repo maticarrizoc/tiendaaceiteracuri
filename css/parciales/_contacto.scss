@@ -1,0 +1,294 @@
+.main-contacto {
+    font-family: $fontTruculenta;
+    font-weight: 700;
+    background-color: $clrPrincipal;
+    color: $clrAzul;
+    grid-template-areas: "contactanos contactanos encontranos"
+        "envios promociones encontranos"
+        "mediosdepago promociones encontranos";
+    grid-template-columns: 1fr 1fr 2fr;
+    gap: 20px;
+    min-width: 95%;
+
+    @include mediaquerie2 {
+        display: grid;
+        grid-template-areas: "contactanos contactanos encontranos"
+            "mediosdepago envios promociones ";
+        padding: 0;
+    }
+
+    @include mediaquerie3 {
+        display: grid;
+        grid-template-areas: "contactanos contactanos"
+            "encontranos encontranos"
+            "envios mediosdepago"
+            "promociones promociones";
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    @include mediaquerie6 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    h1,
+    h2 {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 700;
+
+        @include mediaquerie2 {
+            font-size: 1.8rem;
+        }
+
+        @include mediaquerie2 {
+            font-size: 1.6rem;
+        }
+    }
+
+    .contactanos {
+        grid-area: contactanos;
+        font-size: 1rem;
+
+        a {
+            color: $clrAzul;
+            gap: 10px;
+            align-items: center;
+
+            &:hover i {
+                color: $clrRojo;
+            }
+
+            p {
+                margin: 0;
+            }
+
+        }
+
+
+        .icono-contacto i {
+            font-size: 1.3rem;
+        }
+
+        form {
+
+            input,
+            textarea,
+            button {
+                width: 100%;
+                min-height: 30px;
+                font-family: $fontTruculenta;
+                font-size: 0.9rem;
+                background: $clrSecundario;
+                color: $clrAzul;
+                border: 1px solid $clrAzul;
+                border-radius: 5px;
+                margin-top: 1px;
+
+                @include mediaquerie6 {
+                    min-height: 20px;
+                }
+            }
+
+
+            button {
+                width: auto;
+                font-weight: bold;
+                padding: 1px;
+                color: $clrPrincipal;
+                background: $clrAzul;
+            }
+        }
+    }
+
+    .encontranos {
+        grid-area: encontranos;
+
+        @include mediaquerie1 {
+            text-wrap: stable;
+        }
+
+        a {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            color: $clrAzul;
+            text-align: center;
+            padding-bottom: 10px;
+            font-size: 1rem;
+
+            @include mediaquerie2 {
+                padding-bottom: 1px;
+            }
+
+            i {
+                font-size: 1.3rem;
+            }
+
+            &:hover .bi-geo-alt-fill {
+                color: $clrRojo;
+                transition: transform 0.5s ease;
+                transform: rotate(-25deg);
+            }
+
+
+        }
+
+        img {
+            width: 100%;
+            border-radius: 15px;
+
+            @include mediaquerie2 {
+                width: 100%;
+                border-radius: 15px;
+            }
+
+            @include mediaquerie3 {
+                width: 80%;
+            }
+        }
+
+        .mapa {
+
+            @include mediaquerie2 {
+                display: none;
+            }
+        }
+
+        .mapa-cuadrado {
+            display: none;
+
+            @include mediaquerie2 {
+                display: block;
+            }
+        }
+    }
+
+    .envios {
+        grid-area: envios;
+        font-size: 1rem;
+        text-align: center;
+        margin-bottom: 2px;
+
+        @include mediaquerie2 {
+            font-size: 0.9rem;
+        }
+
+
+        .camion {
+            text-align: start;
+            position: relative;
+            height: 24px;
+            border-bottom: 0.15px solid var(-clr-azul);
+        }
+
+        .camion i {
+            font-size: 24px;
+            width: 100%;
+            position: absolute;
+        }
+
+        .camion .bi-shop {
+            font-size: 20px;
+        }
+
+        .camion .bi-truck {
+            transform: translateX(24px);
+        }
+
+        .camion .bi-house {
+            font-size: 22px;
+            text-align: end;
+        }
+
+        &:hover .bi-truck {
+            transform: translateX(calc(100% - 48px));
+            transition: transform 5s ease;
+        }
+
+        .envio-gratis {
+            background: $clrAzul;
+            color: $clrPrincipal;
+            font-weight: 400;
+        }
+    }
+
+    .medios-de-pago {
+        grid-area: mediosdepago;
+        font-size: 1rem;
+
+        @include mediaquerie2 {
+            font-size: 0.9rem;
+        }
+
+        ul {
+            padding-left: auto;
+            margin-bottom: 2px;
+
+            @include mediaquerie2 {
+                padding-left: 1.5px;
+            }
+
+            i {
+                font-size: 1.3rem;
+
+                @include mediaquerie4 {
+                    padding-left: 48px;
+                }
+
+                @include mediaquerie6 {
+                    padding-left: 16px;
+                }
+            }
+        }
+    }
+
+    .promociones {
+        grid-area: promociones;
+        margin-bottom: 2px;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+
+        .carrusel {
+            max-height: 430px;
+            border-radius: 15px;
+
+            @include mediaquerie2 {
+                max-height: 200px;
+            }
+
+            .img-promocion {
+                display: block;
+                margin: 0 auto;
+                max-height: 430px;
+                border-radius: 15px;
+
+                @include mediaquerie2 {
+                    display: none;
+                }
+            }
+
+            .img-promocion-horizontal {
+                display: none;
+
+                @include mediaquerie2 {
+                    display: block;
+                    margin: 0 auto;
+                    max-height: 200px;
+                    border-radius: 15px;
+
+                }
+            }
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: $clrAzul;
+            border-radius: 10px;
+        }
+    }
+}

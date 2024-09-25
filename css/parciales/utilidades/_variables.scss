@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Truculenta:opsz,wght@12..72,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+
+@font-face {
+    font-family: 'Become';
+    src: url('./../../../fonts/Become-Choice.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Become Choice';
+    src: url("https://db.onlinewebfonts.com/t/ad4c3cd73550e13c224f699237ab4c5c.eot");
+    src: url("https://db.onlinewebfonts.com/t/ad4c3cd73550e13c224f699237ab4c5c.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/ad4c3cd73550e13c224f699237ab4c5c.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/ad4c3cd73550e13c224f699237ab4c5c.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/ad4c3cd73550e13c224f699237ab4c5c.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/ad4c3cd73550e13c224f699237ab4c5c.svg#Become Choice")format("svg");
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+
+$fontTruculenta: 'Truculenta', sans-serif;
+$fontBecome: 'Become';
+$fontBecome2: 'Become Choice';
+$fontFredoka: 'Fredoka';
+$fontVollkorn: 'Vollkorn';
+$fontCookie: 'Cookie';
+
+$clrPrincipal: #dfd9c9;
+$clrSecundario: #D9D3C3;
+$clrCrema: #E3E0D5;
+$clrOliva: #bdac67;
+$clrOliva-claro: #D6C476;
+$clrUva: #4e6200a2;
+$clrGirasol: #cec937a4;
+$clrRojo: #911714;
+$clrRojoClaro: #0f645b;
+$clrVerdeAgua: #1DBFAF;
+$clrVerdeAguaClaro: #49C7BA;
+$clrVerdeAguaOscuro: #199E8E;
+$clrAzul: #181B34;
+$clrGris: #3A3A39;
