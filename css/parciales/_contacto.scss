@@ -3,35 +3,36 @@
     font-weight: 700;
     background-color: $clrPrincipal;
     color: $clrAzul;
-    grid-template-areas: "contactanos contactanos encontranos"
-        "envios promociones encontranos"
-        "mediosdepago promociones encontranos";
-    grid-template-columns: 1fr 1fr 2fr;
+    // padding: 16px;
+    // grid-template-areas: "contactanos contactanos encontranos"
+    //     "envios promociones encontranos"
+    //     "mediosdepago promociones encontranos";
+    // grid-template-columns: 1fr 1fr 2fr;
     gap: 20px;
     min-width: 95%;
 
-    @include mediaquerie2 {
-        display: grid;
-        grid-template-areas: "contactanos contactanos encontranos"
-            "mediosdepago envios promociones ";
-        padding: 0;
-    }
+    // @include mediaquerie2 {
+    //     // display: grid;
+    //     // grid-template-areas: "contactanos contactanos encontranos"
+    //     //     "mediosdepago envios promociones ";
+    //     padding: 0;
+    // }
 
-    @include mediaquerie3 {
-        display: grid;
-        grid-template-areas: "contactanos contactanos"
-            "encontranos encontranos"
-            "envios mediosdepago"
-            "promociones promociones";
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-        padding: 10px;
-    }
+    // @include mediaquerie3 {
+    //     display: grid;
+    //     grid-template-areas: "contactanos contactanos"
+    //         "encontranos encontranos"
+    //         "envios mediosdepago"
+    //         "promociones promociones";
+    //     grid-template-columns: 1fr 1fr;
+    //     gap: 10px;
+    //     padding: 10px;
+    // }
 
-    @include mediaquerie6 {
-        display: flex;
-        flex-direction: column;
-    }
+    // @include mediaquerie6 {
+    //     display: flex;
+    //     flex-direction: column;
+    // }
 
     h1,
     h2 {
@@ -49,7 +50,7 @@
     }
 
     .contactanos {
-        grid-area: contactanos;
+        // grid-area: contactanos;
         font-size: 1rem;
 
         a {
@@ -104,7 +105,7 @@
     }
 
     .encontranos {
-        grid-area: encontranos;
+        // grid-area: encontranos;
 
         @include mediaquerie1 {
             text-wrap: stable;
@@ -152,17 +153,19 @@
 
         .mapa {
 
-            @include mediaquerie2 {
+            // @include mediaquerie2 {
                 display: none;
-            }
+            // }
         }
 
         .mapa-cuadrado {
-            display: none;
+            // display: none;
 
-            @include mediaquerie2 {
+            // @include mediaquerie2 {
                 display: block;
-            }
+                height: 500px;
+                width: 500px;
+            // }
         }
     }
 
@@ -176,42 +179,13 @@
             font-size: 0.9rem;
         }
 
-
-        .camion {
-            text-align: start;
-            position: relative;
-            height: 24px;
-            border-bottom: 0.15px solid var(-clr-azul);
-        }
-
-        .camion i {
-            font-size: 24px;
-            width: 100%;
-            position: absolute;
-        }
-
-        .camion .bi-shop {
-            font-size: 20px;
-        }
-
-        .camion .bi-truck {
-            transform: translateX(24px);
-        }
-
-        .camion .bi-house {
-            font-size: 22px;
-            text-align: end;
-        }
-
-        &:hover .bi-truck {
-            transform: translateX(calc(100% - 48px));
-            transition: transform 5s ease;
-        }
-
         .envio-gratis {
             background: $clrAzul;
             color: $clrPrincipal;
             font-weight: 400;
+        }
+        .mapa-envios{
+            height: 300px;
         }
     }
 

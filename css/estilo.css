@@ -23,7 +23,7 @@ body {
   background-color: #dfd9c9;
 }
 body::-webkit-scrollbar {
-  width: 4px;
+  width: 6px;
   height: 4px;
 }
 body::-webkit-scrollbar-thumb {
@@ -87,14 +87,69 @@ header .navbar .menu {
 }
 header .navbar .menu li {
   text-align: center;
-  min-width: 120px;
 }
-header .navbar .menu li a {
+header .navbar .menu li .nav-link {
+  position: relative;
   color: #181B34;
   font-weight: bold;
   line-height: 1.9rem;
 }
-header .navbar .menu li a:hover {
+@media (width <= 768px) {
+  header .navbar .menu li .nav-link {
+    text-align: start;
+    margin-left: 16px;
+  }
+}
+header .navbar .menu li .nav-link:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #181B34;
+  transform-origin: bottom left;
+  transition: transform 0.6s ease-out;
+}
+header .navbar .menu li .nav-link:hover:after {
+  transform: scaleX(1);
+}
+header .navbar .menu li .carrito-nav-link {
+  position: relative;
+  display: inline-block;
+  font-weight: 900;
+  max-width: 60px !important;
+  text-shadow: -0.25px -0.25px 0 #181B34, 0.25px -0.25px 0 #181B34, -0.25px 0.25px 0 #181B34, 0.25px 0.25px 0 #181B34;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+}
+header .navbar .menu li .carrito-nav-link .contador-carrito {
+  width: 20px;
+  height: 20px;
+  background: #181B34;
+  color: #dfd9c9;
+  border-radius: 100%;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -4px;
+  right: -4px;
+}
+header .navbar .menu .li-sobrenosotros {
+  min-width: 175px;
+}
+header .navbar .menu .li-aceites,
+header .navbar .menu .li-tienda,
+header .navbar .menu .li-contacto {
+  min-width: 120px;
+}
+header .navbar .menu .li-carrito {
+  max-width: 60px;
+}
+header .navbar .menu .nav-link.active {
   color: #181B34;
   font-family: "Become", "Become Choice", "Cookie";
   font-style: italic;
@@ -102,55 +157,28 @@ header .navbar .menu li a:hover {
   font-weight: 900;
 }
 @media (width <= 768px) {
-  header .navbar .menu li a {
-    text-align: start;
-    margin-left: 16px;
-  }
-}
-header .navbar .menu li .carrito {
-  font-weight: 900;
-  text-shadow: -0.25px -0.25px 0 #181B34, 0.25px -0.25px 0 #181B34, -0.25px 0.25px 0 #181B34, 0.25px 0.25px 0 #181B34;
-  font-size: 1.5rem;
-}
-header .navbar .menu li .carrito:hover {
-  font-size: 1.5rem;
-  line-height: 1.5rem;
-  font-family: "Truculenta", sans-serif;
-  font-style: normal;
-}
-header .navbar .menu .li-sobrenosotros {
-  min-width: 150px;
-}
-@media (width <= 768px) {
-  header .navbar .menu .li-sobrenosotros .active {
-    width: 175px;
-  }
-}
-header .navbar .menu .active {
-  color: #911714 !important;
-  background: #1DBFAF;
-  font-family: "Fredoka";
-  font-size: 1.2rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  text-shadow: -0.5px -0.5px 0 #bdac67, 0.5px -0.5px 0 #bdac67, -0.5px 0.5px 0 #bdac67, 0.5px 0.5px 0 #bdac67, 1.5px 1.5px 0 #181B34;
-  border: 3px solid #199E8E;
-  border-radius: 12.5px;
-}
-header .navbar .menu .active:hover {
-  color: #911714;
-  font-family: "Fredoka";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 1.2rem;
-}
-@media (width <= 768px) {
-  header .navbar .menu .active {
+  header .navbar .menu .nav-link.active {
     width: 135px;
-    margin-left: 0;
+    margin-left: 16px;
+    padding: 0;
     display: flex;
-    justify-content: center;
+    text-align: start;
   }
+}
+header .navbar .menu .nav-link.active:hover:after {
+  transform: scaleX(0);
+}
+header .navbar .menu .carrito-nav-link.active {
+  font-style: normal;
+  font-family: "Truculenta", sans-serif;
+  background: #181B34;
+  color: #dfd9c9;
+  border-radius: 5px;
+}
+header .navbar .menu .carrito-nav-link.active .contador-carrito {
+  background: #dfd9c9;
+  color: #181B34;
+  border: 2px solid #181B34;
 }
 
 .body-inicio {
@@ -172,6 +200,7 @@ header .navbar .menu .active:hover {
   gap: 5%;
   max-width: 450px;
   border: 5px solid #181B34;
+  border-radius: 5px;
 }
 .body-inicio .main-inicio .section-titulo .img-titulo {
   max-width: 100%;
@@ -258,7 +287,8 @@ header .navbar .menu .active:hover {
   font-size: 4rem;
   text-shadow: -0.1px -0.1px 0 #dfd9c9, 0.1px -0.1px 0 #dfd9c9, -0.1px 0.1px 0 #dfd9c9, 0.1px 0.1px 0 #dfd9c9;
   background-image: url("../img/bgsn.avif");
-  background-position: top left;
+  background-image: url("../img/recurso 15.png");
+  background-position: top center;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -302,6 +332,7 @@ header .navbar .menu .active:hover {
   font-weight: 800;
   text-align: center;
   background-image: url("../img/bgsn.avif");
+  background-image: url("../img/recurso 15.png");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -408,6 +439,7 @@ header .navbar .menu .active:hover {
 .main-aceites .seleccion-aceite {
   padding: 2.5%;
   border: 5px solid #181B34;
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -592,6 +624,7 @@ header .navbar .menu .active:hover {
   width: 250px;
   background: #181B34;
   color: #dfd9c9;
+  border-radius: 5px 0 0 5px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -616,6 +649,7 @@ header .navbar .menu .active:hover {
 .main-aceites .envases .img-lista .img-envase {
   width: 250px;
   border: 5px solid #181B34;
+  border-radius: 0 5px 5px 0;
 }
 @media (width <= 550px) {
   .main-aceites .envases .img-lista .img-envase {
@@ -677,6 +711,7 @@ header .navbar .menu .active:hover {
 .main-tienda .tienda .tienda-item {
   background: #D9D3C3;
   border: 3px solid #181B34;
+  border-radius: 5px;
   width: 240px;
   height: 300px;
   display: flex;
@@ -707,6 +742,7 @@ header .navbar .menu .active:hover {
   background-color: #dfd9c9;
   color: #181B34;
   border: 2px solid #181B34;
+  border-radius: 5px;
 }
 .main-tienda .tienda .tienda-item button:hover {
   background-color: #181B34;
@@ -730,54 +766,32 @@ header .navbar .menu .active:hover {
   font-size: 22px;
   font-weight: 700;
 }
-.main-tienda .carrito .carrito-productos .carrito-item {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 0;
-  margin: 3px 0;
-  border: 2px solid #181B34;
+
+.toastify .toast-close {
+  color: #181B34;
+  opacity: 1;
 }
-.main-tienda .carrito .carrito-productos .carrito-item h3 {
-  width: 100%;
-  font-size: 20px;
-  font-weight: 700;
-  text-align: left;
-  padding: 0;
-  margin: 0;
+
+.swal2-popup {
+  color: #181B34;
+  background: #D9D3C3;
 }
-.main-tienda .carrito .carrito-productos .carrito-item p {
-  font-size: 16px;
-  font-weight: 700;
-  padding: 0;
-  margin: 0;
+
+.swal2-cancel {
+  color: #D9D3C3;
 }
-.main-tienda .carrito .carrito-productos .carrito-item .precio {
-  width: 100%;
-  text-align: right;
+
+.swal2-icon-content {
+  color: #181B34;
 }
-.main-tienda .carrito .carrito-productos .carrito-item .botones {
-  display: flex;
-  width: 100%;
+
+.swal2-popup .swal2-icon {
+  border: 4px solid #181B34;
 }
-.main-tienda .carrito .carrito-productos .carrito-item .botones .carrito-producto-btn {
+
+.swal2-confirm {
   background: #181B34;
-  color: #dfd9c9;
-  padding: 0 3px;
-  margin: 1px;
-  border: none;
-}
-.main-tienda .carrito .carrito-total {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.main-tienda .carrito .carrito-total .vaciar-carrito-btn {
-  background: #181B34;
-  color: #dfd9c9;
-  padding: 0 3px;
-  margin: 1px;
-  border: none;
+  color: #D9D3C3;
 }
 
 .aceite-oliva .titulo-producto {
@@ -812,37 +826,152 @@ header .navbar .menu .active:hover {
   filter: drop-shadow(8px 8px 4px #3A3A39);
 }
 
+.main-carrito {
+  font-family: "Truculenta", sans-serif;
+  font-weight: 500;
+  color: #181B34;
+  background-color: #dfd9c9;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 85vh;
+  gap: 5px;
+}
+.main-carrito .titulo {
+  font-weight: 700;
+  font-size: 24px;
+}
+.main-carrito .carrito {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 2px solid #181B34;
+  border-radius: 5px;
+  padding: 10px;
+}
+.main-carrito .carrito table {
+  width: 100%;
+  color: #181B34;
+}
+.main-carrito .carrito table thead {
+  font-weight: 700;
+  font-size: 22px;
+  border-bottom: 2px solid #181B34;
+}
+.main-carrito .carrito table tbody {
+  font-weight: 600;
+  font-size: 18px;
+}
+.main-carrito .carrito table tbody td {
+  padding: 5px;
+}
+@media (width <= 768px) {
+  .main-carrito .carrito table tbody td {
+    padding: 0 5px;
+  }
+}
+.main-carrito .carrito table tbody .cantidad {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+}
+@media (width <= 768px) {
+  .main-carrito .carrito table tbody .cantidad {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.main-carrito .carrito table tbody .carrito-producto-btn {
+  background: #181B34;
+  color: #dfd9c9;
+  padding: 0 3px;
+  margin: 1px;
+  border: none;
+  border-radius: 2.5px;
+}
+.main-carrito .carrito table tbody .eliminar {
+  padding: 0;
+  text-align: right;
+}
+.main-carrito .carrito .carrito-total {
+  border-top: 2px solid #181B34;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.main-carrito .carrito .carrito-total .vaciar-carrito-btn {
+  background: #181B34;
+  color: #dfd9c9;
+  padding: 0 3px;
+  margin: 1px;
+  border: none;
+  border-radius: 2.5px;
+}
+.main-carrito .envio {
+  width: 50%;
+  display: flex;
+  border: 2px solid #181B34;
+  border-radius: 5px;
+  padding: 5px;
+  gap: 5px;
+}
+.main-carrito .envio img {
+  height: 300px;
+}
+.main-carrito .envio div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.main-carrito .envio div h2 {
+  font-weight: 700;
+  font-size: 22px;
+}
+.main-carrito .envio div p {
+  font-weight: 600;
+  font-size: 18px;
+  text-align: center;
+}
+.main-carrito .envio div .envio-gratis {
+  background: #181B34;
+  border-radius: 5px;
+  color: #dfd9c9;
+  font-weight: 400;
+}
+
+.swal2-popup {
+  color: #181B34;
+  background: #D9D3C3;
+}
+
+.swal2-cancel {
+  color: #D9D3C3;
+}
+
+.swal2-icon-content {
+  color: #181B34;
+}
+
+.swal2-popup .swal2-icon {
+  border: 4px solid #181B34;
+}
+
+.swal2-confirm {
+  background: #181B34;
+  color: #D9D3C3;
+}
+
 .main-contacto {
   font-family: "Truculenta", sans-serif;
   font-weight: 700;
   background-color: #dfd9c9;
   color: #181B34;
-  grid-template-areas: "contactanos contactanos encontranos" "envios promociones encontranos" "mediosdepago promociones encontranos";
-  grid-template-columns: 1fr 1fr 2fr;
   gap: 20px;
   min-width: 95%;
-}
-@media (width < 1020px) {
-  .main-contacto {
-    display: grid;
-    grid-template-areas: "contactanos contactanos encontranos" "mediosdepago envios promociones ";
-    padding: 0;
-  }
-}
-@media (width <= 800px) {
-  .main-contacto {
-    display: grid;
-    grid-template-areas: "contactanos contactanos" "encontranos encontranos" "envios mediosdepago" "promociones promociones";
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    padding: 10px;
-  }
-}
-@media (width <= 550px) {
-  .main-contacto {
-    display: flex;
-    flex-direction: column;
-  }
 }
 .main-contacto h1,
 .main-contacto h2 {
@@ -863,7 +992,6 @@ header .navbar .menu .active:hover {
   }
 }
 .main-contacto .contactanos {
-  grid-area: contactanos;
   font-size: 1rem;
 }
 .main-contacto .contactanos a {
@@ -907,9 +1035,6 @@ header .navbar .menu .active:hover {
   color: #dfd9c9;
   background: #181B34;
 }
-.main-contacto .encontranos {
-  grid-area: encontranos;
-}
 @media (width < 1200px) {
   .main-contacto .encontranos {
     text-wrap: stable;
@@ -952,18 +1077,13 @@ header .navbar .menu .active:hover {
     width: 80%;
   }
 }
-@media (width < 1020px) {
-  .main-contacto .encontranos .mapa {
-    display: none;
-  }
-}
-.main-contacto .encontranos .mapa-cuadrado {
+.main-contacto .encontranos .mapa {
   display: none;
 }
-@media (width < 1020px) {
-  .main-contacto .encontranos .mapa-cuadrado {
-    display: block;
-  }
+.main-contacto .encontranos .mapa-cuadrado {
+  display: block;
+  height: 500px;
+  width: 500px;
 }
 .main-contacto .envios {
   grid-area: envios;
@@ -976,35 +1096,13 @@ header .navbar .menu .active:hover {
     font-size: 0.9rem;
   }
 }
-.main-contacto .envios .camion {
-  text-align: start;
-  position: relative;
-  height: 24px;
-  border-bottom: 0.15px solid var(-clr-azul);
-}
-.main-contacto .envios .camion i {
-  font-size: 24px;
-  width: 100%;
-  position: absolute;
-}
-.main-contacto .envios .camion .bi-shop {
-  font-size: 20px;
-}
-.main-contacto .envios .camion .bi-truck {
-  transform: translateX(24px);
-}
-.main-contacto .envios .camion .bi-house {
-  font-size: 22px;
-  text-align: end;
-}
-.main-contacto .envios:hover .bi-truck {
-  transform: translateX(calc(100% - 48px));
-  transition: transform 5s ease;
-}
 .main-contacto .envios .envio-gratis {
   background: #181B34;
   color: #dfd9c9;
   font-weight: 400;
+}
+.main-contacto .envios .mapa-envios {
+  height: 300px;
 }
 .main-contacto .medios-de-pago {
   grid-area: mediosdepago;

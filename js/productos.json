@@ -1,0 +1,248 @@
+[
+    {
+        "id": "aceite-oliva",
+        "titulo": "Aceite de Oliva Extra Virgen",
+        "subtitulo": "Primera prensada en frío",
+        "imagen": "../img/aceiteoliva.avif",
+        "propiedades": [
+            "Gran contenido de ácido oleico y linoleico: Ayuda a reducir los niveles de colesterol malo (HDL-C)",
+            "Disminuye la posibilidad de enfermedades cardíacas: Promueve la salud cardiovascular.",
+            "Promueve la digestión sana: Alivia síntomas de úlceras y gastritis.",
+            "Evita la formación de cálculos biliares: Ayuda en la prevención de piedras en la vesícula.",
+            "Equilibria ácidos grasos en el cuerpo"
+        ],
+        "maridaje": {
+            "parrafo": "El aceite de oliva, especialmente el extra virgen, tiene un sabor robusto y afrutado con un toque de amargor y picante. Es muy versátil y se utiliza tanto en crudo como en cocciones. Nuestras recomendaciones:",
+            "imagenes": [
+                "../img/pan.svg",
+                "../img/aliño-ensalada.avif",
+                "../img/pasta.svg",
+                "../img/verduras-asadas.svg"
+            ],
+            "titulos": [
+                "Pan casero",
+                "Ensaladas frescas",
+                "Pasta",
+                "Verduras a la parrilla"
+            ],
+            "descripciones": [
+                "Acompaña pan recién horneado con aceite de oliva para mojar. Añade un poco de sal marina para potenciar el sabor.",
+                "Utiliza aceite de oliva extra virgen en ensaladas mixtas, con ingredientes como tomate, lechuga, rúcula, quesos y aceitunas.",
+                "Un chorrito de aceite de oliva extra virgen sobre pasta recién cocida, especialmente si lleva albahaca y tomate, realza los sabores y añade una textura suave.",
+                "Rocía tus verduras a la parrilla con aceite de oliva para un toque de sabor adicional."
+            ]
+        },
+        "categoria": {
+            "nombre": "Aceites",
+            "id": "aceites"
+        },
+        "precio": 17900
+    },
+    {
+        "id": "aceite-uva",
+        "titulo": "Aceite Puro de pepitas de Uva",
+        "subtitulo": "",
+        "imagen": "../img/aceiteuva.avif",
+        "propiedades": [
+            "Rico en vitaminas C y K: Esencial para combatir y disminuir la posibilidad de artritis, artrosis, gastritis, dermatitis, entre otras.",
+            "Antiinflamatorio: Muy utilizado en la industria cosmética.",
+            "Provee vitamina E y ácido linoleico: Contiene alta concentración de ácidos grasos esenciales, omega G y omega 3."
+        ],
+        "maridaje": {
+            "parrafo": "El aceite de semilla de uva es ligero, con un sabor suave y un alto contenido de antioxidantes. Tiene un punto de humo alto, lo que lo hace adecuado para cocinar a altas temperaturas. Nuestras recomendaciones:",
+            "imagenes": [
+                "../img/carne-asada.svg",
+                "../img/salsas.svg",
+                "../img/postre.svg",
+                "../img/pescados.avif"
+            ],
+            "titulos": [
+                "Carnes asadas",
+                "Salsas y aderezos",
+                "Postres",
+                "Pescados y mariscos"
+            ],
+            "descripciones": [
+                "Usar aceite de uva para aderezar carnes asadas añade un sabor delicado que complementa el ahumado de la parrilla.",
+                "Mezcla aceite de uva con vinagre balsámico, limón y sal para crear aderezos ligeros y sabrosos.",
+                "Sustituye la manteca por aceite de uva en recetas de bizcochos y tortas para una textura más ligera y un sabor suave.",
+                "Ideal para marinar pescados y mariscos antes de cocinarlos, ya que no domina sus sabores delicados."
+            ]
+        },
+        "categoria": {
+            "nombre": "Aceites",
+            "id": "aceites"
+        },
+        "precio": 8900
+    },
+
+    {
+        "id": "aceite-girasol",
+        "titulo": "Aceite de Girasol Alto Oleico",
+        "subtitulo": "",
+        "imagen": "../img/aceitegirasol.avif",
+        "propiedades": [
+            "Altos niveles de ácidos grasos insaturados, libres de colesterol: Ayudan a disminuir los niveles de colesterol y triglicéridos.",
+            "Antioxidante: Beneficioso para el proceso digestivo.",
+            "Rico en vitamina E y Zinc, y vitamina B6: Aporta nutrientes esenciales para la salud."
+        ],
+        "maridaje": {
+            "parrafo": "El aceite de girasol tiene un sabor neutro y es rico en vitamina E. Es muy versátil y se usa comúnmente para freír y hornear debido a su punto de humo alto. Nuestras recomendaciones:",
+            "imagenes": [
+                "../img/frituras.svg",
+                "../img/salteado-verduras.svg",
+                "../img/reposteria.svg",
+                "../img/aliño-ensalada.avif"
+            ],
+            "titulos": [
+                "Frituras",
+                "Salteados de verduras",
+                "Repostería",
+                "Aliños de ensaladas"
+            ],
+            "descripciones": [
+                "Utiliza aceite de girasol para freír papas, milanesas, empanadas y otros alimentos fritos. Su sabor neutro no interfiere con los sabores naturales de los alimentos.",
+                "Es perfecto para saltear verduras, manteniendo su sabor original y añadiendo una textura suave.",
+                "Ideal para recetas de tortas y galletas, ya que no afecta el sabor de los ingredientes principales.",
+                "Mezcla con otros aceites o vinagres para hacer aliños ligeros y suaves para ensaladas."
+            ]
+        },
+        "categoria": {
+            "nombre": "Aceites",
+            "id": "aceites"
+        },
+        "precio": 5900
+    },
+    {
+        "id": "aceitunas-descarozadas",
+        "titulo": "Aceitunas Descarozadas 800g",
+        "subtitulo": "",
+        "imagen": "../img/aceitunas-descarozadas.avif",
+        "categoria": {
+            "nombre": "Aceitunas",
+            "id": "aceitunas"
+        },
+        "precio": 8800
+    },
+    {
+        "id": "aceitunas-griegas",
+        "titulo": "Aceitunas Griegas 1kg",
+        "subtitulo": "",
+        "imagen": "../img/aceitunas-griegas.avif",
+        "categoria": {
+            "nombre": "Aceitunas",
+            "id": "aceitunas"
+        },
+        "precio": 11200
+    },
+    {
+        "id": "aceitunas-rellenas",
+        "titulo": "Aceitunas Rellenas 1kg",
+        "subtitulo": "",
+        "imagen": "../img/aceitunas-rellenas.avif",
+        "categoria": {
+            "nombre": "Aceitunas",
+            "id": "aceitunas"
+        },
+        "precio": 11900
+    },
+    {
+        "id": "ajies-dulces",
+        "titulo": "Ajíes Dulces 110g",
+        "subtitulo": "En vinagre de alcohol",
+        "imagen": "../img/ajies.avif",
+        "categoria": {
+            "nombre": "Conservas",
+            "id": "conservas"
+        },
+        "precio": 2900
+    },
+    {
+        "id": "antipasto",
+        "titulo": "Antipasto 200g",
+        "subtitulo": "",
+        "imagen": "../img/antipasto.avif",
+        "categoria": {
+            "nombre": "Conservas",
+            "id": "conservas"
+        },
+        "precio": 4600
+    },
+    {
+        "id": "berenjenas",
+        "titulo": "Berenjenas en escabeche 220g",
+        "subtitulo": "",
+        "imagen": "../img/berenjenas.avif",
+        "categoria": {
+            "nombre": "Conservas",
+            "id": "conservas"
+        },
+        "precio": 4500
+    },
+    {
+        "id": "cebollas",
+        "titulo": "Cebolla en vinagre de vino 800g",
+        "subtitulo": "",
+        "imagen": "../img/cebollas.avif",
+        "categoria": {
+            "nombre": "Conservas",
+            "id": "conservas"
+        },
+        "precio": 8100
+    },
+    {
+        "id": "cebollitas",
+        "titulo": "Cebollitas reina en vinagre 220g",
+        "subtitulo": "",
+        "imagen": "../img/cebollitas.avif",
+        "categoria": {
+            "nombre": "Conservas",
+            "id": "conservas"
+        },
+        "precio": 4350
+    },
+    {
+        "id": "morrones",
+        "titulo": "Morrones Enteros 220g",
+        "subtitulo": "",
+        "imagen": "../img/morrones.avif",
+        "categoria": {
+            "nombre": "Conservas",
+            "id": "conservas"
+        },
+        "precio": 4900
+    },
+    {
+        "id": "pepinos",
+        "titulo": "Pepinos agridulces 200g",
+        "subtitulo": "",
+        "imagen": "../img/pepinos.avif",
+        "categoria": {
+            "nombre": "Conservas",
+            "id": "conservas"
+        },
+        "precio": 4900
+    },
+    {
+        "id": "pickles",
+        "titulo": "Pickles 220g",
+        "subtitulo": "",
+        "imagen": "../img/pickles.avif",
+        "categoria": {
+            "nombre": "Conservas",
+            "id": "conservas"
+        },
+        "precio": 3000
+    },
+    {
+        "id": "tomates",
+        "titulo": "Tomates peritas 800g",
+        "subtitulo": "Enteros, pelados y condimentados",
+        "imagen": "../img/tomates.avif",
+        "categoria": {
+            "nombre": "Conservas",
+            "id": "conservas"
+        },
+        "precio": 3900
+    }
+]

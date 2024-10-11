@@ -2,23 +2,77 @@ let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 document.addEventListener("DOMContentLoaded", () => {
     actualizarCarrito();
+    // if (window.location.pathname.includes("carrito.html")) {
+    //     actualizarCarrito(); 
+    // } else if (window.location.pathname.includes("tienda.html")) {
+    //     mostrarProductos(productos);
+    // }
 });
 
 //! Header
 class HeaderAceiteraCuri extends HTMLElement {
     connectedCallback() {
+        const currentPath = window.location.pathname;
+        
+        let logoSrc = currentPath.endsWith("index.html") || currentPath === "/" ? "./img/logo.avif" : "../img/logo.avif";
+        let href = currentPath.endsWith("index.html") || currentPath === "/" ? "./pages/" : "./";
+  
         this.innerHTML =
-            ``
+            `<header class="header">
+                <nav class="navbar navbar-expand-md container">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="../index.html"><img class="img-logo" src="${logoSrc}"
+                                alt="Logo de Aceitera Curi"></a>
+                        <button class="navbar-toggler boton-navbar" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav menu ms-auto">
+                                <li class="nav-item menu-opcion li-sobrenosotros">
+                                    <a class="nav-link " href="${href}sobrenosotros.html">Sobre Nosotros</a>
+                                </li>
+                                <li class="nav-item menu-opcion li-aceites">
+                                    <a class="nav-link " href="${href}aceites.html">Aceites</a>
+                                </li>
+                                <li class="nav-item menu-opcion li-tienda">
+                                    <a class="nav-link " href="${href}tienda.html">Tienda</a>
+                                </li>
+                                <li class="nav-item menu-opcion li-contacto">
+                                    <a class="nav-link " href="${href}contacto.html">Contacto</a>
+                                </li>
+                                <li class="nav-item menu-opcion li-carrito">
+                                    <a class="nav-link carrito-nav-link" href="${href}carrito.html">
+                                        <i class="bi bi-cart3"></i>
+                                        <div class="contador-carrito"><span id="carrito-contador">0</span></div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </header>`;
+
+        const navLinks = this.querySelectorAll('.nav-link');
+
+        navLinks.forEach(link => {
+            let href = link.getAttribute('href').slice(1);
+            if (currentPath.endsWith(href) || currentPath.endsWith(href.split('/').pop())) {
+                link.classList.add('active');
+            }
+        });
     }
 }
 customElements.define('header-aceitera-curi', HeaderAceiteraCuri);
+
 //! Footer
 class FooterAceiteraCuri extends HTMLElement {
     connectedCallback() {
         const currentPath = window.location.pathname;
 
         let logoSrc = currentPath.endsWith("index.html") || currentPath === "/" ? "./img/logo.avif" : "../img/logo.avif";
-
+        
         this.innerHTML =
             `<footer class="footer d-flex flex-wrap justify-content-between">
                 <section class="footer-logo">
@@ -38,11 +92,16 @@ class FooterAceiteraCuri extends HTMLElement {
                     <a class="icono-footer" href="https://www.instagram.com/aceiteracuri/?hl=es-la" target="_blank">
                         <i class="bi bi-instagram"></i>
                     </a>
+                    <a class="icono-footer" href="https://www.facebook.com/aceitera.curi" target="_blank">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                    
                     <a class="icono-footer"
                         href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJlFmSRJjvlslpxFRHWxWppgmbQkTZkdbxTMmJPNqwZnFnBRnBtSWwZGbkDxpGPPmzjSZCg"
                         target="_blank">
                         <i class="bi bi-envelope-at"></i>
                     </a>
+
                 </section>
                 <section class="informacion-2">
                     <p class="m-0">Horario de atención:</p>
@@ -74,258 +133,13 @@ class FooterAceiteraCuri extends HTMLElement {
 customElements.define('footer-aceitera-curi', FooterAceiteraCuri);
 
 //! Productos
-const productos = [
-    //! Aceites
-    {
-        id: "aceite-oliva",
-        titulo: "Aceite de Oliva Extra Virgen",
-        subtitulo: "Primera prensada en frío",
-        imagen: "../img/aceiteoliva.avif",
-        propiedades: [
-            "Gran contenido de ácido oleico y linoleico: Ayuda a reducir los niveles de colesterol malo (HDL-C)",
-            "Disminuye la posibilidad de enfermedades cardíacas: Promueve la salud cardiovascular.",
-            "Promueve la digestión sana: Alivia síntomas de úlceras y gastritis.",
-            "Evita la formación de cálculos biliares: Ayuda en la prevención de piedras en la vesícula.",
-            "Equilibria ácidos grasos en el cuerpo",
-        ],
-        maridaje: {
-            parrafo: "El aceite de oliva, especialmente el extra virgen, tiene un sabor robusto y afrutado con un toque de amargor y picante. Es muy versátil y se utiliza tanto en crudo como en cocciones. Nuestras recomendaciones:",
-            imagenes: [
-                "../img/pan.svg",
-                "../img/aliño-ensalada.avif",
-                "../img/pasta.svg",
-                "../img/verduras-asadas.svg"
-            ],
-            titulos: [
-                "Pan casero",
-                "Ensaladas frescas",
-                "Pasta",
-                "Verduras a la parrilla"
-            ],
-            descripciones: [
-                "Acompaña pan recién horneado con aceite de oliva para mojar. Añade un poco de sal marina para potenciar el sabor.",
-                "Utiliza aceite de oliva extra virgen en ensaladas mixtas, con ingredientes como tomate, lechuga, rúcula, quesos y aceitunas.",
-                "Un chorrito de aceite de oliva extra virgen sobre pasta recién cocida, especialmente si lleva albahaca y tomate, realza los sabores y añade una textura suave.",
-                "Rocía tus verduras a la parrilla con aceite de oliva para un toque de sabor adicional."
-            ],
-        },
-        categoria: {
-            nombre: "Aceites",
-            id: "aceites"
-        },
-        precio: 17900
-    },
-    {
-        id: "aceite-uva",
-        titulo: "Aceite Puro de pepitas de Uva",
-        subtitulo: "",
-        imagen: "../img/aceiteuva.avif",
-        propiedades: [
-            "Rico en vitaminas C y K: Esencial para combatir y disminuir la posibilidad de artritis, artrosis, gastritis, dermatitis, entre otras.",
-            "Antiinflamatorio: Muy utilizado en la industria cosmética.",
-            "Provee vitamina E y ácido linoleico: Contiene alta concentración de ácidos grasos esenciales, omega G y omega 3.",
-        ],
-        maridaje: {
-            parrafo: "El aceite de semilla de uva es ligero, con un sabor suave y un alto contenido de antioxidantes. Tiene un punto de humo alto, lo que lo hace adecuado para cocinar a altas temperaturas. Nuestras recomendaciones:",
-            imagenes: [
-                "../img/carne-asada.svg",
-                "../img/salsas.svg",
-                "../img/postre.svg",
-                "../img/pescados.avif"
-            ],
-            titulos: [
-                "Carnes asadas",
-                "Salsas y aderezos",
-                "Postres",
-                "Pescados y mariscos"
-            ],
-            descripciones: [
-                "Usar aceite de uva para aderezar carnes asadas añade un sabor delicado que complementa el ahumado de la parrilla.",
-                "Mezcla aceite de uva con vinagre balsámico, limón y sal para crear aderezos ligeros y sabrosos.",
-                "Sustituye la manteca por aceite de uva en recetas de bizcochos y tortas para una textura más ligera y un sabor suave.",
-                "Ideal para marinar pescados y mariscos antes de cocinarlos, ya que no domina sus sabores delicados."
-            ]
-        },
-        categoria: {
-            nombre: "Aceites",
-            id: "aceites"
-        },
-        precio: 8900
-    },
-
-    {
-        id: "aceite-girasol",
-        titulo: "Aceite de Girasol Alto Oleico",
-        subtitulo: "",
-        imagen: "../img/aceitegirasol.avif",
-        propiedades: [
-            "Altos niveles de ácidos grasos insaturados, libres de colesterol: Ayudan a disminuir los niveles de colesterol y triglicéridos.",
-            "Antioxidante: Beneficioso para el proceso digestivo.",
-            "Rico en vitamina E y Zinc, y vitamina B6: Aporta nutrientes esenciales para la salud."
-        ],
-        maridaje: {
-            parrafo: "El aceite de girasol tiene un sabor neutro y es rico en vitamina E. Es muy versátil y se usa comúnmente para freír y hornear debido a su punto de humo alto. Nuestras recomendaciones:",
-            imagenes: [
-                "../img/frituras.svg",
-                "../img/salteado-verduras.svg",
-                "../img/reposteria.svg",
-                "../img/aliño-ensalada.avif"
-            ],
-            titulos: [
-                "Frituras",
-                "Salteados de verduras",
-                "Repostería",
-                "Aliños de ensaladas"
-            ],
-            descripciones: [
-                "Utiliza aceite de girasol para freír papas, milanesas, empanadas y otros alimentos fritos. Su sabor neutro no interfiere con los sabores naturales de los alimentos.",
-                "Es perfecto para saltear verduras, manteniendo su sabor original y añadiendo una textura suave.",
-                "Ideal para recetas de tortas y galletas, ya que no afecta el sabor de los ingredientes principales.",
-                "Mezcla con otros aceites o vinagres para hacer aliños ligeros y suaves para ensaladas."
-            ],
-        },
-        categoria: {
-            nombre: "Aceites",
-            id: "aceites"
-        },
-        precio: 5900
-    },
-    //! Aceitunas
-    {
-        id: "aceitunas-descarozadas",
-        titulo: "Aceitunas Descarozadas 800g",
-        subtitulo: "",
-        imagen: "../img/aceitunas-descarozadas.avif",
-        categoria: {
-            nombre: "Aceitunas",
-            id: "aceitunas"
-        },
-        precio: 8800
-    },
-    {
-        id: "aceitunas-griegas",
-        titulo: "Aceitunas Griegas 1kg",
-        subtitulo: "",
-        imagen: "../img/aceitunas-griegas.avif",
-        categoria: {
-            nombre: "Aceitunas",
-            id: "aceitunas"
-        },
-        precio: 11200
-    },
-    {
-        id: "aceitunas-rellenas",
-        titulo: "Aceitunas Rellenas 1kg",
-        subtitulo: "",
-        imagen: "../img/aceitunas-rellenas.avif",
-        categoria: {
-            nombre: "Aceitunas",
-            id: "aceitunas"
-        },
-        precio: 11900
-    },
-    //! Conservas
-    {
-        id: "ajies-dulces",
-        titulo: "Ajíes Dulces 110g",
-        subtitulo: "En vinagre de alcohol",
-        imagen: "../img/ajies.avif",
-        categoria: {
-            nombre: "Conservas",
-            id: "conservas"
-        },
-        precio: 2900
-    },
-    {
-        id: "antipasto",
-        titulo: "Antipasto 200g",
-        subtitulo: "",
-        imagen: "../img/antipasto.avif",
-        categoria: {
-            nombre: "Conservas",
-            id: "conservas"
-        },
-        precio: 4600
-    },
-    {
-        id: "berenjenas",
-        titulo: "Berenjenas en escabeche 220g",
-        subtitulo: "",
-        imagen: "../img/berenjenas.avif",
-        categoria: {
-            nombre: "Conservas",
-            id: "conservas"
-        },
-        precio: 4500
-    },
-    {
-        id: "cebollas",
-        titulo: "Cebolla en vinagre de vino 800g",
-        subtitulo: "",
-        imagen: "../img/cebollas.avif",
-        categoria: {
-            nombre: "Conservas",
-            id: "conservas"
-        },
-        precio: 8100
-    },
-    {
-        id: "cebollitas",
-        titulo: "Cebollitas reina en vinagre 220g",
-        subtitulo: "",
-        imagen: "../img/cebollitas.avif",
-        categoria: {
-            nombre: "Conservas",
-            id: "conservas"
-        },
-        precio: 4350
-    },
-    {
-        id: "morrones",
-        titulo: "Morrones Enteros 220g",
-        subtitulo: "",
-        imagen: "../img/morrones.avif",
-        categoria: {
-            nombre: "Conservas",
-            id: "conservas"
-        },
-        precio: 4900
-    },
-    {
-        id: "pepinos",
-        titulo: "Pepinos agridulces 200g",
-        subtitulo: "",
-        imagen: "../img/pepinos.avif",
-        categoria: {
-            nombre: "Conservas",
-            id: "conservas"
-        },
-        precio: 4900
-    },
-    {
-        id: "pickles",
-        titulo: "Pickles 220g",
-        subtitulo: "",
-        imagen: "../img/pickles.avif",
-        categoria: {
-            nombre: "Conservas",
-            id: "conservas"
-        },
-        precio: 3000
-    },
-    {
-        id: "tomates",
-        titulo: "Tomates peritas 800g",
-        subtitulo: "Enteros, pelados y condimentados",
-        imagen: "../img/tomates.avif",
-        categoria: {
-            nombre: "Conservas",
-            id: "conservas"
-        },
-        precio: 3900
-    },
-];
-
+let productos = [];
+fetch("../js/productos.json")
+    .then(response => response.json())
+    .then(data => {
+        productos = data;
+        cargarProductos(productos);
+    })
 //! Aceites
 
 let aceiteOlivaBtn = document.querySelector("#aceite-oliva");
@@ -359,7 +173,7 @@ if (aceiteOlivaBtn && aceiteUvaBtn && aceiteGirasolBtn && aceite && maridaje) {
                     <button>5l</button>
                 </div>
                 <div class="div-botones-carrito">
-                    <button>Agregar al carrito</button>
+                    <button class="producto-btn">Agregar al carrito</button>
                 </div>
             </div>
         </div>
@@ -452,6 +266,31 @@ function agregarAlCarrito(producto) {
         carrito.push({ ...producto, cantidad: 1 });
     }
 
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+
+    Toastify({
+        text: `Producto agregado al carrito`,
+        duration: 3000,
+        destination: "./carrito.html",
+        newWindow: false,
+        close: true,
+        gravity: "bottom",
+        position: "right",
+        stopOnFocus: true,
+        style: {
+            padding: `5px`,
+            fontFamily: `Truculenta`,
+            fontSize: `16px`,
+            fontWeight: `800`,
+            color: `#181B34`,
+            background: `#dfd9c9`,
+            border: `2px solid #181B34`,
+            borderRadius: `2.5px`,
+            closeColor: `#181B34`,
+        },
+
+    }).showToast();
+
     actualizarCarrito();
 }
 
@@ -462,27 +301,38 @@ function actualizarCarrito() {
     if (carrito.length === 0) {
         listaCarrito.innerHTML = `<p>Carrito vacío.</p>`;
     } else {
-        listaCarrito.innerHTML = "";
-        let productoEnCarrito = '';
+        let productoEnCarrito = `
+        <table>
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Subtotal</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>`;
 
         carrito.forEach((producto, index) => {
             productoEnCarrito += `
-            <article class="carrito-item">
-                <h3>${producto.titulo}</h3>
-                <p class="precio">$${producto.precio}</p>
-                <p class="cantidad">Cantidad: ${producto.cantidad}</p>
-                <p class="subtotal">Subtotal: $${producto.precio * producto.cantidad}</p>
-                <div class="botones">
-                    <button class="carrito-producto-btn btn-aumentar" data-index="${index}"><i class="bi bi-plus"></i></button>
+            <tr>
+                <td>${producto.titulo}</td>
+                <td>$${producto.precio}</td>
+                <td class="cantidad">
                     <button class="carrito-producto-btn btn-reducir" data-index="${index}"><i class="bi bi-dash"></i></button>
+                    ${producto.cantidad}
+                    <button class="carrito-producto-btn btn-aumentar" data-index="${index}"><i class="bi bi-plus"></i></button>
+                </td>
+                <td>$${producto.precio * producto.cantidad}</td>
+                <td class="eliminar">
                     <button class="carrito-producto-btn btn-borrar" data-index="${index}"><i class="bi bi-x"></i></button>
-                </div>
-            </article>
-            `;
+                </td>
+            </tr>`;
         });
 
+        productoEnCarrito += `</tbody></table>`;
         listaCarrito.innerHTML = productoEnCarrito;
-        // asignarEventosBotonesCarrito();
 
         const botonAumentarProductoAlCarrito = document.querySelectorAll(".btn-aumentar");
         botonAumentarProductoAlCarrito.forEach((boton, index) => {
@@ -513,6 +363,11 @@ function actualizarCarrito() {
         });
     }
 
+    // const totalContadorProductos = carrito.reduce((acc, producto) => acc + producto.cantidad, 0);
+    // document.getElementById("carrito-contador").textContent = `${totalContadorProductos}`;
+
+    // actualizarContador();
+
     actualizarTotal();
     localStorage.setItem("carrito", JSON.stringify(carrito));
 }
@@ -521,6 +376,12 @@ function actualizarTotal() {
     const total = carrito.reduce((acc, producto) => acc + producto.precio * producto.cantidad, 0);
     document.getElementById("carrito-total").textContent = `$${total}`;
 }
+
+// function actualizarContador() {
+//     let carritoContador = document.getElementById("carrito-contador");
+//     let totalContadorProductos = carrito.reduce((acc, producto) => acc + producto.cantidad, 0);
+//     carritoContador.innerText = totalContadorProductos;
+// }
 
 function filtrarProductos(categoria) {
     if (categoria === 'todos') {
@@ -543,8 +404,33 @@ const vaciarCarritoBtn = document.getElementById("vaciar-carrito-btn");
 vaciarCarritoBtn.addEventListener("click", vaciarCarrito);
 
 function vaciarCarrito() {
-    carrito = [];
-    actualizarCarrito();
+
+    if (carrito.length > 0) {
+        Swal.fire({
+            title: "¿Quiere eliminar su carrito?",
+            text: "¡No podrás volver atrás!",
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonColor: "#911714",
+            cancelButtonColor: "#3A3A39",
+            confirmButtonText: "Eliminar carrito",
+            cancelButtonText: "Deseo volver"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: "Usted vacío su carrito.",
+                    icon: "success"
+                });
+                carrito = [];
+                actualizarCarrito();
+            }
+        });
+
+    }
+
 }
 
 mostrarProductos(productos);
+
+
+let coord = { lat: -32.89774702509356, lng: -68.85941111255168 };

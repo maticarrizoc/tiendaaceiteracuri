@@ -48,83 +48,116 @@ header {
 
             li {
                 text-align: center;
-                min-width: 120px;
 
-                a {
+                .nav-link {
+                    position: relative;
                     color: $clrAzul;
                     font-weight: bold;
                     line-height: 1.9rem;
-
-                    &:hover {
-                        color: $clrAzul;
-                        font-family: $fontBecome, $fontBecome2, $fontCookie;
-                        font-style: italic;
-                        font-size: 1.8rem;
-                        font-weight: 900;
-                    }
 
                     @include mediaquerie4 {
                         text-align: start;
                         margin-left: 16px;
                     }
-                }
-                .carrito{
-                    font-weight: 900;
-                    text-shadow:
-                    -0.25px -0.25px 0 $clrAzul,
-                    0.25px -0.25px 0 $clrAzul,
-                    -0.25px 0.25px 0 $clrAzul,
-                    0.25px 0.25px 0 $clrAzul;
-                    font-size: 1.5rem;
-                    &:hover {
-                        font-size: 1.5rem;
-                        line-height: 1.5rem;
-                        font-family: $fontTruculenta;
-                        font-style: normal;
+
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        width: 100%;
+                        transform: scaleX(0);
+                        height: 2px;
+                        bottom: 0;
+                        left: 0;
+                        background-color: $clrAzul;
+                        transform-origin: bottom left;
+                        transition: transform 0.6s ease-out;
+                    }
+
+                    &:hover:after {
+                        transform: scaleX(1);
                     }
                 }
+
+                .carrito-nav-link {
+                    position: relative;
+                    display: inline-block;
+                    font-weight: 900;
+                    max-width: 60px !important;
+                    text-shadow:
+                        -0.25px -0.25px 0 $clrAzul,
+                        0.25px -0.25px 0 $clrAzul,
+                        -0.25px 0.25px 0 $clrAzul,
+                        0.25px 0.25px 0 $clrAzul;
+                    font-size: 1.5rem;
+                    line-height: 1.5rem;
+
+                    .contador-carrito {
+                        width: 20px;
+                        height: 20px;
+                        background: $clrAzul;
+                        color: $clrPrincipal;
+                        border-radius: 100%;
+                        font-size: 14px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        position: absolute;
+                        top: -4px;
+                        right: -4px;
+                    }
+                }
+
             }
 
             .li-sobrenosotros {
-                min-width: 150px;
-
-                .active {
-                    @include mediaquerie4 {
-                        width: 175px;
-                    }
-                }
+                min-width: 175px;
             }
 
-            .active {
-                color: $clrRojo !important;
-                background: $clrVerdeAgua;
-                font-family: $fontFredoka;
-                font-size: 1.2rem;
-                font-weight: 600;
-                text-transform: uppercase;
-                text-shadow:
-                    -0.5px -0.5px 0 $clrOliva,
-                    0.5px -0.5px 0 $clrOliva,
-                    -0.5px 0.5px 0 $clrOliva,
-                    0.5px 0.5px 0 $clrOliva,
-                    1.5px 1.5px 0 $clrAzul;
-                border: 3px solid $clrVerdeAguaOscuro;
-                border-radius: 12.5px;
+            .li-aceites,
+            .li-tienda,
+            .li-contacto {
+                min-width: 120px;
+            }
 
-                &:hover {
-                    color: $clrRojo;
-                    font-family: $fontFredoka;
-                    font-style: normal;
-                    font-weight: 600;
-                    font-size: 1.2rem;
-                }
+            .li-carrito {
+                max-width: 60px;
+            }
+
+            .nav-link.active {
+                color: $clrAzul;
+                font-family: $fontBecome, $fontBecome2, $fontCookie;
+                font-style: italic;
+                font-size: 1.8rem;
+                font-weight: 900;
 
                 @include mediaquerie4 {
                     width: 135px;
-                    margin-left: 0;
+                    margin-left: 16px;
+                    padding: 0;
                     display: flex;
-                    justify-content: center;
+                    text-align: start;
+
                 }
+
+                &:hover:after {
+                    transform: scaleX(0);
+                }
+            }
+
+            .carrito-nav-link.active {
+                font-style: normal;
+                font-family: $fontTruculenta;
+                background: $clrAzul;
+                color: $clrPrincipal;
+                border-radius: 5px;
+
+                // transform: rotate(-10deg);
+                .contador-carrito {
+                    background: $clrPrincipal;
+                    color: $clrAzul;
+                    border: 2px solid $clrAzul;
+                }
+
             }
         }
     }
