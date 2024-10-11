@@ -33,19 +33,33 @@
 
 <body>
     <header-aceitera-curi></header-aceitera-curi>
-    
+
     <main class="main-carrito container">
         <h1 class="titulo">Carrito</h1>
         <section id="carrito" class="carrito">
             <div class="carrito-productos" id="carrito-productos">
             </div>
-
-            <div class="carrito-total">
-                <h2>Total: <span id="carrito-total">$0</span></h2>
-                <!-- <button class="vaciar-carrito-btn">Finalizar compra</i></button> -->
-                <button id="vaciar-carrito-btn" class="vaciar-carrito-btn"><i class="bi bi-trash"></i></button>
-            </div>
-            <button class="vaciar-carrito-btn">Finalizar compra</i></button>
+            <button id="vaciar-carrito-btn" class="vaciar-carrito-btn">Vacíar Carrito <i class="bi bi-trash"></i></button>
+           
+        </section>
+        <section class="carrito-total">
+            <h2>Total Carrito</h2>
+            <table>
+                <tr>
+                    <td>Subtotal</td>
+                    <td><span id="carrito-total">$0</span></td>
+                </tr>
+                <tr>
+                    <td>Envío</td>
+                    <td>$0</td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td>$0</td>
+                </tr>
+            </table>
+            <button class="finalizar-compra-btn">Finalizar compra</i></button>
+            
         </section>
         <section class="envio">
             <img src="../img/mapa-envios.svg" alt="">
@@ -58,6 +72,7 @@
                 </p>
             </div>
         </section>
+        
     </main>
 
     <footer-aceitera-curi></footer-aceitera-curi>

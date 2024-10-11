@@ -4,9 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
     actualizarCarrito();
     // if (window.location.pathname.includes("carrito.html")) {
     //     actualizarCarrito(); 
-    // } else if (window.location.pathname.includes("tienda.html")) {
-    //     mostrarProductos(productos);
-    // }
+    if (window.location.pathname.includes("tienda.html")) {
+        mostrarProductos(productos);
+    }
 });
 
 //! Header
@@ -431,6 +431,3 @@ function vaciarCarrito() {
 }
 
 mostrarProductos(productos);
-
-
-let coord = { lat: -32.89774702509356, lng: -68.85941111255168 };

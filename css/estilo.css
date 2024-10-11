@@ -832,16 +832,26 @@ header .navbar .menu .carrito-nav-link.active .contador-carrito {
   color: #181B34;
   background-color: #dfd9c9;
   padding: 0;
-  display: flex;
-  flex-direction: column;
+  margin-bottom: 5px;
+  display: grid;
+  grid-template-areas: "titulo titulo" "carrito carrito" "envio totalCarrito";
+  grid-template-columns: 2fr 1fr;
   min-height: 85vh;
   gap: 5px;
 }
+@media (width <= 768px) {
+  .main-carrito {
+    display: flex;
+    flex-direction: column;
+  }
+}
 .main-carrito .titulo {
+  grid-area: titulo;
   font-weight: 700;
   font-size: 24px;
 }
 .main-carrito .carrito {
+  grid-area: carrito;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -896,22 +906,44 @@ header .navbar .menu .carrito-nav-link.active .contador-carrito {
   padding: 0;
   text-align: right;
 }
-.main-carrito .carrito .carrito-total {
-  border-top: 2px solid #181B34;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.main-carrito .carrito .carrito-total .vaciar-carrito-btn {
+.main-carrito .carrito .vaciar-carrito-btn {
   background: #181B34;
   color: #dfd9c9;
+  font-weight: 700;
+  padding: 0 3px;
+  margin: 1px;
+  border: none;
+  border-radius: 2.5px;
+}
+.main-carrito .carrito-total {
+  grid-area: totalCarrito;
+  border: 2px solid #181B34;
+  border-radius: 5px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+}
+.main-carrito .carrito-total h2 {
+  font-weight: 700;
+  font-size: 22px;
+  border-bottom: 2px solid #181B34;
+}
+.main-carrito .carrito-total p {
+  font-weight: 700;
+  font-size: 22px;
+  margin: 0;
+}
+.main-carrito .carrito-total .finalizar-compra-btn {
+  background: #181B34;
+  color: #dfd9c9;
+  font-weight: 700;
   padding: 0 3px;
   margin: 1px;
   border: none;
   border-radius: 2.5px;
 }
 .main-carrito .envio {
-  width: 50%;
+  grid-area: envio;
   display: flex;
   border: 2px solid #181B34;
   border-radius: 5px;
