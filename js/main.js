@@ -1,11 +1,10 @@
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 document.addEventListener("DOMContentLoaded", () => {
+    actualizarCantidadCarrito();
     actualizarCarrito();
-    // if (window.location.pathname.includes("carrito.html")) {
-    //     actualizarCarrito(); 
     if (window.location.pathname.includes("tienda.html")) {
-        mostrarProductos(productos);
+        filtrarProductos("todos");
     }
 });
 
@@ -149,7 +148,12 @@ let aceiteGirasolBtn = document.querySelector("#aceite-girasol");
 let aceite = document.querySelector(".aceite");
 let maridaje = document.querySelector(".maridaje");
 if (aceiteOlivaBtn && aceiteUvaBtn && aceiteGirasolBtn && aceite && maridaje) {
-    function actualizarInformacion(producto) {
+    function actualizarInformacion(producto, boton) {
+        let botones = document.querySelectorAll('.opcion-aceites');
+        botones.forEach(btn => btn.classList.remove('active'));
+
+        boton.classList.add('active');
+        
         let listaPropiedades = producto.propiedades.map(propiedad =>
             `<li class="propiedad-aceite">${propiedad}</li>`
         ).join('');
@@ -221,7 +225,7 @@ if (aceiteOlivaBtn && aceiteUvaBtn && aceiteGirasolBtn && aceite && maridaje) {
         boton.addEventListener("click", () => {
             const aceiteSeleccionado = productos.find(producto => producto.id === boton.id);
             if (aceiteSeleccionado) {
-                actualizarInformacion(aceiteSeleccionado);
+                actualizarInformacion(aceiteSeleccionado, boton);
             }
         });
     }
@@ -296,7 +300,6 @@ function agregarAlCarrito(producto) {
 
 function actualizarCarrito() {
     let listaCarrito = document.getElementById("carrito-productos");
-    let carritoTotal = document.getElementById("carrito-total");
 
     if (carrito.length === 0) {
         listaCarrito.innerHTML = `<p>Carrito vacío.</p>`;
@@ -363,25 +366,20 @@ function actualizarCarrito() {
         });
     }
 
-    // const totalContadorProductos = carrito.reduce((acc, producto) => acc + producto.cantidad, 0);
-    // document.getElementById("carrito-contador").textContent = `${totalContadorProductos}`;
-
-    // actualizarContador();
-
+    actualizarCantidadCarrito();
     actualizarTotal();
     localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+function actualizarCantidadCarrito() {
+    const cantidadCarrito = carrito.reduce((acc, producto) => acc + producto.cantidad, 0);
+    document.getElementById("carrito-contador").textContent = `${cantidadCarrito}`;
 }
 
 function actualizarTotal() {
     const total = carrito.reduce((acc, producto) => acc + producto.precio * producto.cantidad, 0);
     document.getElementById("carrito-total").textContent = `$${total}`;
 }
-
-// function actualizarContador() {
-//     let carritoContador = document.getElementById("carrito-contador");
-//     let totalContadorProductos = carrito.reduce((acc, producto) => acc + producto.cantidad, 0);
-//     carritoContador.innerText = totalContadorProductos;
-// }
 
 function filtrarProductos(categoria) {
     if (categoria === 'todos') {

@@ -13,6 +13,11 @@
         "filtros tienda"
         "carrito tienda";
 
+    @include mediaquerie5{
+        display: flex;
+        flex-direction: column;
+    }
+
     .titulo {
         grid-area: titulo;
         font-weight: 700;
@@ -39,12 +44,25 @@
             width: 100%;
             text-align: start;
             padding-left: 15px;
+            // &:hover {
+            //     font-family: $fontBecome, $fontBecome2, $fontCookie;
+            //     font-style: italic;
+            //     font-size: 24px;
+                
+            //     font-weight: 900;
+            // }
             &:hover {
+                text-decoration: underline;
+            }
+
+            &.active{
                 font-family: $fontBecome, $fontBecome2, $fontCookie;
                 font-style: italic;
-                font-size: 24px;
-                
+                font-size: 1.6rem;
                 font-weight: 900;
+            }
+            &.active:hover{
+                text-decoration: none;
             }
         }
     }
@@ -68,9 +86,18 @@
             align-items: center;
             padding: 5px;
 
+            @include mediaquerie4 {
+                width: 220px;
+                height: 280px;
+            }
+
             .titulo-producto {
                 font-size: 22px;
                 font-weight: 700;
+                @include mediaquerie4 {
+                    font-size: 20px;
+                }
+
             }
 
             .subtitulo-producto {
@@ -87,6 +114,10 @@
 
             .imagen-producto {
                 max-width: 80px;
+
+                @include mediaquerie4 {
+                    max-width: 60px;
+                }
             }
 
             button {

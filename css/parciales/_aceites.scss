@@ -31,9 +31,9 @@
         ul>li {
             list-style: none;
 
-            button {
+            .opcion-aceites {
                 font-size: 1.4rem;
-                line-height: 1.8rem;
+                line-height: 2rem;
                 font-weight: 700;
                 background: none;
                 color: $clrAzul;
@@ -41,10 +41,17 @@
                 border: none;
 
                 &:hover {
+                    text-decoration: underline;
+                }
+
+                &.active{
                     font-family: $fontBecome, $fontBecome2, $fontCookie;
                     font-style: italic;
                     font-size: 1.6rem;
                     font-weight: 900;
+                }
+                &.active:hover{
+                    text-decoration: none;
                 }
             }
         }

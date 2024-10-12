@@ -131,6 +131,7 @@ header .navbar .menu li .carrito-nav-link .contador-carrito {
   color: #dfd9c9;
   border-radius: 100%;
   font-size: 14px;
+  font-weight: 300;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -286,11 +287,10 @@ header .navbar .menu .carrito-nav-link.active .contador-carrito {
   font-family: "Become", "Become Choice", "Cookie";
   font-size: 4rem;
   text-shadow: -0.1px -0.1px 0 #dfd9c9, 0.1px -0.1px 0 #dfd9c9, -0.1px 0.1px 0 #dfd9c9, 0.1px 0.1px 0 #dfd9c9;
-  background-image: url("../img/bgsn.avif");
-  background-image: url("../img/recurso 15.png");
-  background-position: top center;
+  background-image: url("../img/bgsn2.avif");
+  background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 102% 102%;
 }
 @media (width <= 768px) {
   .main-sobre-nosotros .consumasalud {
@@ -331,11 +331,10 @@ header .navbar .menu .carrito-nav-link.active .contador-carrito {
   font-size: 1.2rem;
   font-weight: 800;
   text-align: center;
-  background-image: url("../img/bgsn.avif");
-  background-image: url("../img/recurso 15.png");
-  background-position: center center;
+  background-image: url("../img/bgsn2.avif");
+  background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 102% 102%;
 }
 @media (width <= 768px) {
   .main-sobre-nosotros .parrafo-1 {
@@ -452,20 +451,26 @@ header .navbar .menu .carrito-nav-link.active .contador-carrito {
 .main-aceites .seleccion-aceite ul > li {
   list-style: none;
 }
-.main-aceites .seleccion-aceite ul > li button {
+.main-aceites .seleccion-aceite ul > li .opcion-aceites {
   font-size: 1.4rem;
-  line-height: 1.8rem;
+  line-height: 2rem;
   font-weight: 700;
   background: none;
   color: #181B34;
   padding: 0px;
   border: none;
 }
-.main-aceites .seleccion-aceite ul > li button:hover {
+.main-aceites .seleccion-aceite ul > li .opcion-aceites:hover {
+  text-decoration: underline;
+}
+.main-aceites .seleccion-aceite ul > li .opcion-aceites.active {
   font-family: "Become", "Become Choice", "Cookie";
   font-style: italic;
   font-size: 1.6rem;
   font-weight: 900;
+}
+.main-aceites .seleccion-aceite ul > li .opcion-aceites.active:hover {
+  text-decoration: none;
 }
 .main-aceites .aceite {
   display: flex;
@@ -669,6 +674,12 @@ header .navbar .menu .carrito-nav-link.active .contador-carrito {
   gap: 10px;
   grid-template-areas: "titulo titulo" "filtros tienda" "carrito tienda";
 }
+@media (width <= 700px) {
+  .main-tienda {
+    display: flex;
+    flex-direction: column;
+  }
+}
 .main-tienda .titulo {
   grid-area: titulo;
   font-weight: 700;
@@ -696,10 +707,16 @@ header .navbar .menu .carrito-nav-link.active .contador-carrito {
   padding-left: 15px;
 }
 .main-tienda .filtros button:hover {
+  text-decoration: underline;
+}
+.main-tienda .filtros button.active {
   font-family: "Become", "Become Choice", "Cookie";
   font-style: italic;
-  font-size: 24px;
+  font-size: 1.6rem;
   font-weight: 900;
+}
+.main-tienda .filtros button.active:hover {
+  text-decoration: none;
 }
 .main-tienda .tienda {
   grid-area: tienda;
@@ -720,9 +737,20 @@ header .navbar .menu .carrito-nav-link.active .contador-carrito {
   align-items: center;
   padding: 5px;
 }
+@media (width <= 768px) {
+  .main-tienda .tienda .tienda-item {
+    width: 220px;
+    height: 280px;
+  }
+}
 .main-tienda .tienda .tienda-item .titulo-producto {
   font-size: 22px;
   font-weight: 700;
+}
+@media (width <= 768px) {
+  .main-tienda .tienda .tienda-item .titulo-producto {
+    font-size: 20px;
+  }
 }
 .main-tienda .tienda .tienda-item .subtitulo-producto {
   font-size: 18px;
@@ -735,6 +763,11 @@ header .navbar .menu .carrito-nav-link.active .contador-carrito {
 }
 .main-tienda .tienda .tienda-item .imagen-producto {
   max-width: 80px;
+}
+@media (width <= 768px) {
+  .main-tienda .tienda .tienda-item .imagen-producto {
+    max-width: 60px;
+  }
 }
 .main-tienda .tienda .tienda-item button {
   width: 100%;
@@ -834,7 +867,7 @@ header .navbar .menu .carrito-nav-link.active .contador-carrito {
   padding: 0;
   margin-bottom: 5px;
   display: grid;
-  grid-template-areas: "titulo titulo" "carrito carrito" "envio totalCarrito";
+  grid-template-areas: "titulo titulo" "carrito carrito" "envio totalCarrito" "envio mediosDePago";
   grid-template-columns: 2fr 1fr;
   min-height: 85vh;
   gap: 5px;
@@ -973,6 +1006,24 @@ header .navbar .menu .carrito-nav-link.active .contador-carrito {
   border-radius: 5px;
   color: #dfd9c9;
   font-weight: 400;
+}
+.main-carrito .medios-de-pago {
+  grid-area: mediosDePago;
+  border: 2px solid #181B34;
+  border-radius: 5px;
+  padding: 5px;
+}
+.main-carrito .medios-de-pago h2 {
+  font-weight: 700;
+  font-size: 22px;
+}
+.main-carrito .medios-de-pago ul {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 2px;
+}
+.main-carrito .medios-de-pago ul i {
+  font-size: 16px;
 }
 
 .swal2-popup {
@@ -1116,56 +1167,6 @@ header .navbar .menu .carrito-nav-link.active .contador-carrito {
   display: block;
   height: 500px;
   width: 500px;
-}
-.main-contacto .envios {
-  grid-area: envios;
-  font-size: 1rem;
-  text-align: center;
-  margin-bottom: 2px;
-}
-@media (width < 1020px) {
-  .main-contacto .envios {
-    font-size: 0.9rem;
-  }
-}
-.main-contacto .envios .envio-gratis {
-  background: #181B34;
-  color: #dfd9c9;
-  font-weight: 400;
-}
-.main-contacto .envios .mapa-envios {
-  height: 300px;
-}
-.main-contacto .medios-de-pago {
-  grid-area: mediosdepago;
-  font-size: 1rem;
-}
-@media (width < 1020px) {
-  .main-contacto .medios-de-pago {
-    font-size: 0.9rem;
-  }
-}
-.main-contacto .medios-de-pago ul {
-  padding-left: auto;
-  margin-bottom: 2px;
-}
-@media (width < 1020px) {
-  .main-contacto .medios-de-pago ul {
-    padding-left: 1.5px;
-  }
-}
-.main-contacto .medios-de-pago ul i {
-  font-size: 1.3rem;
-}
-@media (width <= 768px) {
-  .main-contacto .medios-de-pago ul i {
-    padding-left: 48px;
-  }
-}
-@media (width <= 550px) {
-  .main-contacto .medios-de-pago ul i {
-    padding-left: 16px;
-  }
 }
 .main-contacto .promociones {
   grid-area: promociones;
