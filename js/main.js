@@ -295,7 +295,9 @@ function agregarAlCarrito(producto) {
 
     }).showToast();
 
+    actualizarCantidadCarrito();
     actualizarCarrito();
+    
 }
 
 function actualizarCarrito() {
