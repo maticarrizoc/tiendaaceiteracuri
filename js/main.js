@@ -397,6 +397,12 @@ function filtrarProductos(categoria) {
 const botonesFiltro = document.querySelectorAll(".categorias button");
 botonesFiltro.forEach((boton) => {
     boton.addEventListener("click", () => {
+
+        botonesFiltro.forEach((b) => {
+            b.classList.remove("active")
+        });
+        boton.classList.add("active");
+
         const categoria = boton.getAttribute("data-categoria");
         filtrarProductos(categoria);
     });
@@ -460,7 +466,6 @@ const solicitarCompraBtn = document.querySelector("#solicitar-compra-btn");
 if (solicitarCompraBtn) {
     solicitarCompraBtn.addEventListener("click", (event) => {
         event.preventDefault();
-        console.log("Se solicito compra");
         const nombre = document.querySelector('#nombre').value;
         const dni = document.querySelector('#dni').value;
         const telefono = document.querySelector('#telefono').value;
@@ -501,11 +506,10 @@ if (solicitarCompraBtn) {
         const urlWhatsApp = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${mensajeCodificado}`;
 
         window.open(urlWhatsApp, '_blank');
-        console.log("sigo aca?")
         carrito = [];
         localStorage.setItem("carrito", JSON.stringify(carrito));
         actualizarCarrito();
         window.open("/tienda.html");
-        console.log("y aca?")
+
     });
 }
