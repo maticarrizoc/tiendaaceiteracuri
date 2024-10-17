@@ -22,7 +22,7 @@ class HeaderAceiteraCuri extends HTMLElement {
             `<header class="header">
                 <nav class="navbar navbar-expand-md container">
                     <div class="container-fluid">
-                        <a class="navbar-brand" href="../index.html"><img class="img-logo" src="${logoSrc}"
+                        <a class="navbar-brand" href="${href}index.html"><img class="img-logo" src="${logoSrc}"
                                 alt="Logo de Aceitera Curi"></a>
                         <button class="navbar-toggler boton-navbar" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
@@ -453,7 +453,7 @@ if (finalizarCompraBtn) {
                 cancelButtonText: "Deseo seguir comprando"
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = "/pages/finalizarcompra.html";
+                    window.location.href = "/tiendaaceiteracuri/pages/finalizarcompra.html";
                 }
             });
         } else {
