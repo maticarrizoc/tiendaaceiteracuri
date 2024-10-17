@@ -3,19 +3,21 @@ let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 document.addEventListener("DOMContentLoaded", () => {
     actualizarCantidadCarrito();
     actualizarCarrito();
+
     if (window.location.pathname.includes("tienda.html")) {
-        filtrarProductos("todos");
+        mostrarProductos(productos);
     }
+
 });
 
 //! Header
 class HeaderAceiteraCuri extends HTMLElement {
     connectedCallback() {
         const currentPath = window.location.pathname;
-        
+
         let logoSrc = currentPath.endsWith("index.html") || currentPath === "/" ? "./img/logo.avif" : "../img/logo.avif";
         let href = currentPath.endsWith("index.html") || currentPath === "/" ? "./pages/" : "./";
-  
+
         this.innerHTML =
             `<header class="header">
                 <nav class="navbar navbar-expand-md container">
@@ -71,7 +73,7 @@ class FooterAceiteraCuri extends HTMLElement {
         const currentPath = window.location.pathname;
 
         let logoSrc = currentPath.endsWith("index.html") || currentPath === "/" ? "./img/logo.avif" : "../img/logo.avif";
-        
+
         this.innerHTML =
             `<footer class="footer d-flex flex-wrap justify-content-between">
                 <section class="footer-logo">
@@ -137,10 +139,9 @@ fetch("../js/productos.json")
     .then(response => response.json())
     .then(data => {
         productos = data;
-        cargarProductos(productos);
+        mostrarProductos(productos);
     })
 //! Aceites
-
 let aceiteOlivaBtn = document.querySelector("#aceite-oliva");
 let aceiteUvaBtn = document.querySelector("#aceite-uva");
 let aceiteGirasolBtn = document.querySelector("#aceite-girasol");
@@ -153,7 +154,7 @@ if (aceiteOlivaBtn && aceiteUvaBtn && aceiteGirasolBtn && aceite && maridaje) {
         botones.forEach(btn => btn.classList.remove('active'));
 
         boton.classList.add('active');
-        
+
         let listaPropiedades = producto.propiedades.map(propiedad =>
             `<li class="propiedad-aceite">${propiedad}</li>`
         ).join('');
@@ -232,11 +233,11 @@ if (aceiteOlivaBtn && aceiteUvaBtn && aceiteGirasolBtn && aceite && maridaje) {
 
     [aceiteOlivaBtn, aceiteUvaBtn, aceiteGirasolBtn].forEach(boton => mostrarDetalleAceite(boton));
 }
-//! Tienda
-
+// //! Tienda
 function mostrarProductos(productos) {
     let tienda = document.querySelector("#tienda");
     let productosHTML = '';
+    if (!tienda) return;
 
     productos.forEach((producto) => {
         productosHTML += `
@@ -297,11 +298,12 @@ function agregarAlCarrito(producto) {
 
     actualizarCantidadCarrito();
     actualizarCarrito();
-    
+
 }
 
 function actualizarCarrito() {
     let listaCarrito = document.getElementById("carrito-productos");
+    if (!listaCarrito) return;
 
     if (carrito.length === 0) {
         listaCarrito.innerHTML = `<p>Carrito vacío.</p>`;
@@ -400,11 +402,11 @@ botonesFiltro.forEach((boton) => {
     });
 });
 
-const vaciarCarritoBtn = document.getElementById("vaciar-carrito-btn");
-vaciarCarritoBtn.addEventListener("click", vaciarCarrito);
-
+const vaciarCarritoBtn = document.querySelector("#vaciar-carrito-btn");
+if (vaciarCarritoBtn) {
+    vaciarCarritoBtn.addEventListener("click", vaciarCarrito);
+}
 function vaciarCarrito() {
-
     if (carrito.length > 0) {
         Swal.fire({
             title: "¿Quiere eliminar su carrito?",
@@ -422,12 +424,88 @@ function vaciarCarrito() {
                     icon: "success"
                 });
                 carrito = [];
+                localStorage.setItem("carrito", JSON.stringify(carrito));
                 actualizarCarrito();
             }
         });
 
     }
-
 }
 
-mostrarProductos(productos);
+
+const finalizarCompraBtn = document.querySelector("#finalizar-compra-btn");
+if (finalizarCompraBtn) {
+    finalizarCompraBtn.addEventListener("click", () => {
+        if (carrito.length > 0) {
+            Swal.fire({
+                title: "¿Quiere finalizar su compra?",
+                icon: '<i class="bi bi-cart"></i>',
+                showCancelButton: true,
+                confirmButtonColor: "#4e6200",
+                cancelButtonColor: "#3A3A39",
+                confirmButtonText: "Finalizar compra",
+                cancelButtonText: "Deseo seguir comprando"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "/pages/finalizarcompra.html";
+                }
+            });
+        } else {
+            Swal.fire("Debe ingresar productos al carrito para finalizar su compra.");
+        }
+    });
+}
+
+const solicitarCompraBtn = document.querySelector("#solicitar-compra-btn");
+if (solicitarCompraBtn) {
+    solicitarCompraBtn.addEventListener("click", (event) => {
+        event.preventDefault();
+        console.log("Se solicito compra");
+        const nombre = document.querySelector('#nombre').value;
+        const dni = document.querySelector('#dni').value;
+        const telefono = document.querySelector('#telefono').value;
+        const email = document.querySelector('#email').value;
+        const provincia = document.querySelector('#provincia').value;
+        const ciudad = document.querySelector('#ciudad').value;
+        const direccion = document.querySelector('#direccion').value;
+        const aclaracion = document.querySelector('#aclaracion').value;
+        const cp = document.querySelector('#cp').value;
+
+        let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+        let mensaje = `Hola! Quiero solicitar una compra.\n`;
+        mensaje += `Nombre: ${nombre}\n`;
+        mensaje += `DNI: ${dni}\n`;
+        mensaje += `Teléfono: ${telefono}\n`;
+        mensaje += `Email: ${email}\n`;
+        mensaje += `Provincia: ${provincia}\n`;
+        mensaje += `Ciudad: ${ciudad}\n`;
+        mensaje += `Dirección: ${direccion}\n`;
+        mensaje += `Aclaración: ${aclaracion}\n`;
+        mensaje += `Código Postal: ${cp}\n\n`;
+
+        mensaje += `Pedido:\n`;
+        let total = 0;
+
+        carrito.forEach(producto => {
+            mensaje += `Producto: ${producto.titulo} - Cantidad: ${producto.cantidad} - Precio: $${producto.precio * producto.cantidad}\n`;
+            total += producto.precio * producto.cantidad;
+        });
+
+        mensaje += `Total: $${total}\n`;
+
+        const mensajeCodificado = encodeURIComponent(mensaje);
+
+        const numeroWhatsApp = '542615330573';
+
+        const urlWhatsApp = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${mensajeCodificado}`;
+
+        window.open(urlWhatsApp, '_blank');
+        console.log("sigo aca?")
+        carrito = [];
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+        actualizarCarrito();
+        window.open("/tienda.html");
+        console.log("y aca?")
+    });
+}

@@ -1,0 +1,41 @@
+.main-finalizar-compra {
+    min-height: 80vh;
+    font-family: $fontTruculenta;
+
+    h1{
+        font-size: 24px;
+        font-weight: 700;
+        color: $clrAzul;
+    }
+
+    .form-finalizar-compra {
+        input,
+        select,
+        button {
+            width: 100%;
+            min-height: 30px;
+            font-size: 22px;
+            background: $clrSecundario;
+            color: $clrAzul;
+            border: 1px solid $clrAzul;
+            border-radius: 5px;
+            margin: 1px;
+            
+
+            @include mediaquerie6 {
+                min-height: 20px;
+            }
+        }
+        input {
+            padding-left: 5px;
+        }
+
+        button {
+            width: auto;
+            font-weight: bold;
+            padding: 1px;
+            color: $clrPrincipal;
+            background: $clrAzul;
+        }
+    }
+}

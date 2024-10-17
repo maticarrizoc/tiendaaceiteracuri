@@ -3,11 +3,6 @@
     font-weight: 700;
     background-color: $clrPrincipal;
     color: $clrAzul;
-    // padding: 16px;
-    // grid-template-areas: "contactanos contactanos encontranos"
-    //     "envios promociones encontranos"
-    //     "mediosdepago promociones encontranos";
-    // grid-template-columns: 1fr 1fr 2fr;
     gap: 20px;
     min-width: 95%;
 
@@ -50,7 +45,6 @@
     }
 
     .contactanos {
-        // grid-area: contactanos;
         font-size: 1rem;
 
         a {
@@ -87,6 +81,7 @@
                 border: 1px solid $clrAzul;
                 border-radius: 5px;
                 margin-top: 1px;
+                padding-left: 5px;
 
                 @include mediaquerie6 {
                     min-height: 20px;
