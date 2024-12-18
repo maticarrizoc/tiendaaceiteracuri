@@ -17,12 +17,13 @@ class HeaderAceiteraCuri extends HTMLElement {
 
         let logoSrc = currentPath.endsWith("index.html") || currentPath === "/" ? "./img/logo.avif" : "../img/logo.avif";
         let href = currentPath.endsWith("index.html") || currentPath === "/" ? "./pages/" : "./";
+        let hrefToIndex = currentPath.endsWith("index.html") || currentPath === "/" ? "./" : "../";
 
         this.innerHTML =
             `<header class="header">
                 <nav class="navbar navbar-expand-md container">
                     <div class="container-fluid">
-                        <a class="navbar-brand" href="../index.html"><img class="img-logo" src="${logoSrc}"
+                        <a class="navbar-brand" href="${hrefToIndex}index.html"><img class="img-logo" src="${logoSrc}"
                                 alt="Logo de Aceitera Curi"></a>
                         <button class="navbar-toggler boton-navbar" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
@@ -73,11 +74,12 @@ class FooterAceiteraCuri extends HTMLElement {
         const currentPath = window.location.pathname;
 
         let logoSrc = currentPath.endsWith("index.html") || currentPath === "/" ? "./img/logo.avif" : "../img/logo.avif";
-
+        let hrefToIndex = currentPath.endsWith("index.html") || currentPath === "/" ? "./" : "../";
+        
         this.innerHTML =
             `<footer class="footer d-flex flex-wrap justify-content-between">
                 <section class="footer-logo">
-                    <a href="../index.html">
+                    <a href="${hrefToIndex}index.html">
                         <img class="footer-logo-img" src="${logoSrc}" alt="Logo de Aceitera Curi">
                     </a>
                 </section>
